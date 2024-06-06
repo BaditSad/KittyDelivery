@@ -9,4 +9,27 @@
           <button class="profile_button">Profile</button>
       </router-link>
     </header>
+    <div class="container">
+    <div class="main">
+      <div class="rest-card">
+        <h1>Restaurant à proximité &#127828;</h1>
+        <div class="card-rests">
+          <div class="card-rest"> Restaurant
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <router-link to="/stats">
+          <button class="commands">Mes commandes</button>
+        </router-link>
+        <div class="referral">
+          <h3>Parrainage</h3>
+          <label>
+            <input class="text" type="email" placeholder="Adresse mail à parrainer" />
+          </label>
+          <button>Parrainer</button>
+        </div>
+      </div>
+    </div>
+  </div>
   </template>
