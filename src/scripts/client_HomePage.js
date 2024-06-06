@@ -1,9 +1,9 @@
-import HomePage from '@/components/client_HomePage.vue'
+import client_HomePage from '@/components/client_HomePage.vue'
 
 export default {
-  name: 'HomePage',
+  name: 'client_HomePage',
   components: {
-    HomePage
+    client_HomePage
   }
 };
 

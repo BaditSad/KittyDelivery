@@ -1,9 +1,9 @@
-import ProfilePage from '@/components/client_ProfilePage.vue'
+import Client_ProfilePage from '@/components/client_ProfilePage.vue'
 
 export default {
-  name: 'ProfilePage',
+  name: 'Client_ProfilePage',
   components: {
-    ProfilePage
+    Client_ProfilePage
   }
 };
 

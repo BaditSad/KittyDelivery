@@ -1,5 +1,5 @@
 <script src="../scripts/tech_NewServicesPage.js"></script>
-<style src="../stylesheets/tech_NewServices.css" scoped></style>
+<style src="../stylesheets/tech_NewServicesPage.css" scoped></style>
 
 <template>
     <header>

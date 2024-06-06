@@ -1,5 +1,5 @@
 <script src="../scripts/rest_HomePage.js"></script>
-<style src="../stylesheets/rest_ArticlesPage.css" scoped></style>
+<style src="../stylesheets/rest_HomePage.css" scoped></style>
 
 <template>
   <header>

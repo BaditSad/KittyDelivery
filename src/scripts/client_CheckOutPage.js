@@ -1,4 +1,4 @@
-import CheckOutPage from '@/components/CheckOutPage.vue'
+import CheckOutPage from '@/components/client_CheckOutPage.vue'
 
 export default {
   name: 'CheckOutPage',

@@ -31,6 +31,30 @@ const routes = [
     redirect: '/login'
   },
   {
+    path: '/client',
+    redirect: '/client/home'
+  },
+  {
+    path: '/rest',
+    redirect: '/rest/home'
+  },
+  {
+    path: '/comm',
+    redirect: '/comm/home'
+  },
+  {
+    path: '/tech',
+    redirect: '/tech/home'
+  },
+  {
+    path: '/dev',
+    redirect: '/dev/home'
+  },
+  {
+    path: '/deliv',
+    redirect: '/deliv/home'
+  },
+  {
     path: '/login',
     name: 'login',
     component: Auth_LoginPage
@@ -41,118 +65,118 @@ const routes = [
     component: Auth_RegisterPage
   },
   {
-    path: '/client',
-    name: 'home',
+    path: '/client/home',
+    name: 'client-home',
     component: Client_HomePage
   },
   {
     path: '/client/profile',
-    name: 'profile',
+    name: 'client-profile',
     component: Client_ProfilePage
   },
   {
     path: '/client/checkout',
-    name: 'checkout',
+    name: 'client-checkout',
     component: Client_CheckOutPage
   },
   {
     path: '/client/delivery',
-    name: 'delivery',
+    name: 'client-delivery',
     component: Client_DeliveryPage
   },
   {
     path: '/client/selectmeal',
-    name: 'selectmeal',
+    name: 'client-selectmeal',
     component: Client_SelectMealPage
   },
   {
     path: '/comm',
-    name: 'home',
+    name: 'comm-home',
     component: Comm_HomePage
   },
   {
     path: '/comm/accounts',
-    name: 'accounts',
+    name: 'comm-accounts',
     component: Comm_AccountsPage
   },
   {
     path: '/comm/dashboard',
-    name: 'dashboard',
+    name: 'comm-dashboard',
     component: Comm_Dashboard
   },
   {
     path: '/deliv',
-    name: 'home',
+    name: 'deliv-home',
     component: Deliv_HomePage
   },
   {
     path: '/deliv/profile',
-    name: 'profile',
+    name: 'deliv-profile',
     component: Deliv_ProfilePage
   },
   {
     path: '/deliv/tracking',
-    name: 'tracking',
+    name: 'deliv-tracking',
     component: Deliv_TrackingPage
   },
   {
     path: '/dev',
-    name: 'home',
+    name: 'dev-home',
     component: Dev_HomePage
   },
   {
     path: '/dev/profile',
-    name: 'profile',
+    name: 'dev-profile',
     component: Dev_ProfilePage
   },
   {
-    path: '/rest',
-    name: 'home',
+    path: '/rest/home',
+    name: 'rest-home',
     component: Rest_HomePage
   },
   {
     path: '/rest/articles',
-    name: 'articles',
+    name: 'rest-articles',
     component: Rest_ArticlesPage
   },
   {
     path: '/rest/profile',
-    name: 'profile',
+    name: 'rest-profile',
     component: Rest_ProfilePage
   },
   {
     path: '/rest/stats',
-    name: 'stats',
+    name: 'rest-stats',
     component: Rest_StatsPage
   },
   {
     path: '/rest/tracking',
-    name: 'tracking',
+    name: 'rest-tracking',
     component: Rest_TrackingPage
   },
   {
     path: '/tech',
-    name: 'home',
+    name: 'tech-home',
     component: Tech_HomePage
   },
   {
     path: '/tech/logsdev',
-    name: 'logsdev',
+    name: 'tech-logsdev',
     component: Tech_LogsDevPage
   },
   {
     path: '/tech/logsstats',
-    name: 'logsstats',
+    name: 'tech-logsstats',
     component: Tech_LogsStatsPage
   },
   {
     path: '/tech/services',
-    name: 'services',
+    name: 'tech-services',
     component: Tech_NewServicesPage
   },
   {
     path: '/tech/resolve',
-    name: 'resolve',
+    name: 'tech-resolve',
     component: Tech_ResolvePage
   }
 ]
