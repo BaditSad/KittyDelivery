@@ -1,5 +1,5 @@
-<script src="../scripts/deliv_TrackingPage.js"></script>
-<style src="../stylesheets/deliv_TrackingPage.css" scoped></style>
+<script src="../scripts/comm_DashboardPage.js"></script>
+<style src="../stylesheets/comm_DashboardPage.css" scoped></style>
 
 <template>
     <header>

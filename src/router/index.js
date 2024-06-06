@@ -8,9 +8,10 @@ import Client_DeliveryPage from '@/components/client_DeliveryPage.vue'
 import Client_SelectMealPage from '@/components/client_SelectMealPage.vue'
 import Comm_HomePage from '@/components/comm_HomePage.vue'
 import Comm_AccountsPage from '@/components/comm_AccountsPage.vue'
-import Comm_Dashboard from '@/components/comm_Dashboard.vue'
+import Comm_Dashboard from '@/components/comm_DashboardPage.vue'
 import Deliv_HomePage from '@/components/deliv_HomePage.vue'
 import Deliv_ProfilePage from '@/components/deliv_ProfilePage.vue'
+import Deliv_TrackingPage from '@/components/deliv_TrackingPage.vue'
 import Dev_HomePage from '@/components/dev_HomePage.vue'
 import Dev_ProfilePage from '@/components/dev_ProfilePage.vue'
 import Rest_HomePage from '@/components/rest_HomePage.vue'
@@ -40,7 +41,7 @@ const routes = [
     component: Auth_RegisterPage
   },
   {
-    path: '/client/home',
+    path: '/client',
     name: 'home',
     component: Client_HomePage
   },
@@ -65,7 +66,7 @@ const routes = [
     component: Client_SelectMealPage
   },
   {
-    path: '/comm/home',
+    path: '/comm',
     name: 'home',
     component: Comm_HomePage
   },
@@ -80,7 +81,7 @@ const routes = [
     component: Comm_Dashboard
   },
   {
-    path: '/deliv/home',
+    path: '/deliv',
     name: 'home',
     component: Deliv_HomePage
   },
@@ -92,10 +93,10 @@ const routes = [
   {
     path: '/deliv/tracking',
     name: 'tracking',
-    component: Deliv_HomePage
+    component: Deliv_TrackingPage
   },
   {
-    path: '/dev/home',
+    path: '/dev',
     name: 'home',
     component: Dev_HomePage
   },
@@ -105,7 +106,7 @@ const routes = [
     component: Dev_ProfilePage
   },
   {
-    path: '/rest/home',
+    path: '/rest',
     name: 'home',
     component: Rest_HomePage
   },
@@ -130,7 +131,7 @@ const routes = [
     component: Rest_TrackingPage
   },
   {
-    path: '/tech/home',
+    path: '/tech',
     name: 'home',
     component: Tech_HomePage
   },
