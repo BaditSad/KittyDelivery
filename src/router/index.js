@@ -90,7 +90,7 @@ const routes = [
     component: Client_SelectMealPage
   },
   {
-    path: '/comm',
+    path: '/comm/home',
     name: 'comm-home',
     component: Comm_HomePage
   },
@@ -120,7 +120,7 @@ const routes = [
     component: Deliv_TrackingPage
   },
   {
-    path: '/dev',
+    path: '/dev/home',
     name: 'dev-home',
     component: Dev_HomePage
   },
@@ -155,7 +155,7 @@ const routes = [
     component: Rest_TrackingPage
   },
   {
-    path: '/tech',
+    path: '/tech/home',
     name: 'tech-home',
     component: Tech_HomePage
   },
