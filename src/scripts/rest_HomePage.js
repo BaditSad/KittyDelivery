@@ -1,80 +1,108 @@
-import HomePage from '@/components/rest_HomePage.vue'
-import { getArticles } from "@/services/HandlerGetArticles";
-import { deleteArticle } from "@/services/HandlerDeleteArticles";
-import { postArticle } from "@/services/HandlerPostArticles";
-import { updateArticle } from "@/services/HandlerPutArticles";
+import { getMenus } from "@/services/HandlerGetMenus";
+import { deleteMenu } from "@/services/HandlerDeleteMenu";
+import { postMenu } from "@/services/HandlerPostMenu";
+import { updateMenu } from "@/services/HandlerPutMenu";
 
 export default {
-  name: "HomePage",
-  components: {
-    HomePage
-  },
+  name: "RestPage",
   data() {
     return {
       menuItems: [],
       selectedItem: null,
       editItem: null,
       selectedIndex: null,
+      newMenu: {
+        menu_name: "",
+        menu_description: "",
+        menu_price: 0,
+        article_list: [""],
+      },
+      isAddingMenu: false, // Propriété pour suivre l'état du formulaire d'ajout
     };
   },
   async mounted() {
     try {
-      this.menuItems = await getArticles();
+      this.menuItems = await getMenus();
     } catch (error) {
-      console.error("Erreur lors de la récupération des articles:", error);
+      console.error("Erreur lors de la récupération des menus:", error);
     }
   },
   methods: {
-    async deleteItem(item) {
+    async deleteMenu(item) {
       if (
         confirm(
-          `Êtes-vous sûr de vouloir supprimer l'article: ${item.article_name}?`
+          `Êtes-vous sûr de vouloir supprimer le menu: ${item.menu_name}?`
         )
       ) {
         try {
-          await deleteArticle(item._id);
+          await deleteMenu(item._id);
           this.menuItems = this.menuItems.filter(
-            (article) => article._id !== item._id
+            (menu) => menu._id !== item._id
           );
         } catch (error) {
-          console.error("Erreur lors de la suppression de l'article:", error);
+          console.error("Erreur lors de la suppression du menu:", error);
         }
       }
     },
-    async addItem() {
-      const newArticle = {
-        menu_id: 1,
-        article_name: "Nouvel Article",
-        description: "Description de l'article",
-        price: 10,
-      };
+    async addMenu() {
       try {
-        const createdArticle = await postArticle(newArticle);
-        this.menuItems.push(createdArticle);
+        //need to call user => restaurant_id
+        this.newMenu.restaurant_id = "1";
+        const createdMenu = await postMenu(this.newMenu);
+        this.menuItems.push(createdMenu);
+        this.resetNewMenu();
+        this.isAddingMenu = false;
       } catch (error) {
-        console.error("Erreur lors de la création de l'article:", error);
+        console.error("Erreur lors de la création du menu:", error);
       }
     },
-    selectItemForEdit(item, index) {
+    resetNewMenu() {
+      this.newMenu = {
+        menu_name: "",
+        menu_description: "",
+        menu_price: 0,
+        article_list: [""],
+      };
+    },
+    selectMenuForEdit(item, index) {
       this.selectedItem = item;
       this.editItem = { ...item };
       this.selectedIndex = index;
     },
-    async modifierItem() {
+    async updateMenu() {
       try {
-        await updateArticle(this.editItem._id, this.editItem);
+        await updateMenu(this.editItem._id, this.editItem);
         this.menuItems.splice(this.selectedIndex, 1, this.editItem);
         this.selectedItem = null;
         this.editItem = null;
         this.selectedIndex = null;
       } catch (error) {
-        console.error("Erreur lors de la modification de l'article:", error);
+        console.error("Erreur lors de la modification du menu:", error);
       }
     },
-    cancelEdit() {
+    cancelEditMenu() {
       this.selectedItem = null;
       this.editItem = null;
       this.selectedIndex = null;
+    },
+    addArticle() {
+      this.editItem.article_list.push("");
+    },
+    removeArticle(index) {
+      this.editItem.article_list.splice(index, 1);
+    },
+    addNewArticle() {
+      this.newMenu.article_list.push("");
+    },
+    removeNewArticle(index) {
+      this.newMenu.article_list.splice(index, 1);
+    },
+    showAddMenuForm() {
+      this.isAddingMenu = true;
+    },
+    cancelAddMenu() {
+      this.isAddingMenu = false;
+      this.resetNewMenu();
     },
   },
 };
