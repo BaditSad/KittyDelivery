@@ -1,4 +1,4 @@
-import { getOrders } from "../services/HandlerGetOrders";
+import { getRestaurantOrders } from "../services/HandlerGetOrders";
 import { updateOrderStatus } from "../services/HandlerPutOrder";
 
 export default {
@@ -50,7 +50,7 @@ export default {
       this.loading = true;
       try {
         const restaurantId = "1";
-        const orders = await getOrders(restaurantId);
+        const orders = await getRestaurantOrders(restaurantId);
         this.orders = orders;
         this.categorizeOrders(orders);
       } catch (err) {

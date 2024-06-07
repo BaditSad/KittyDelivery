@@ -1,4 +1,4 @@
-import { getOrders } from "../services/HandlerGetOrders";
+import { getRestaurantOrders } from "../services/HandlerGetOrders";
 
 export default {
   name: "SuiviPage",
@@ -18,7 +18,7 @@ export default {
       try {
         const id = 1;
         this.loading = true;
-        this.orders = await getOrders(id);
+        this.orders = await getRestaurantOrders(id);
         this.calculateDailyOrders();
         this.calculateTopItems();
         this.calculateTotalRevenue();

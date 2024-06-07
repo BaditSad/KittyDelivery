@@ -2,9 +2,31 @@ import axios from "axios";
 
 const API_URL = "http://localhost:3000/api";
 
-export const getOrders = async (restaurantId) => {
+export const getRestaurantOrders = async (restaurantId) => {
   try {
-    const response = await axios.get(`${API_URL}/mc_order/${restaurantId}`);
+    const response = await axios.get(
+      `${API_URL}/mc_order/restaurant/${restaurantId}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la récupération de order:", error);
+    throw error;
+  }
+};
+
+export const getUserOrders = async (userId) => {
+  try {
+    const response = await axios.get(`${API_URL}/mc_order/user/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la récupération de order:", error);
+    throw error;
+  }
+};
+
+export const getAllOrders = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/mc_order`);
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la récupération de order:", error);
