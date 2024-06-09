@@ -105,7 +105,7 @@ const routes = [
     component: Comm_Dashboard
   },
   {
-    path: '/deliv',
+    path: '/deliv/home',
     name: 'deliv-home',
     component: Deliv_HomePage
   },

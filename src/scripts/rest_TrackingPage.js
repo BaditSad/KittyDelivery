@@ -11,6 +11,7 @@ export default {
         accepted: [],
         refused: [],
       },
+
       loading: false,
       error: null,
     };
@@ -23,11 +24,11 @@ export default {
         refused: [],
       };
       orders.forEach((order) => {
-        if (order.order_status === "0") {
+        if (order.order_status === "pending") {
           categorized.pending.push(order);
-        } else if (order.order_status === "accepté") {
+        } else if (order.order_status === "accepted") {
           categorized.accepted.push(order);
-        } else if (order.order_status === "refusé") {
+        } else if (order.order_status === "refused") {
           categorized.refused.push(order);
         }
       });
@@ -60,10 +61,10 @@ export default {
       }
     },
     acceptOrder(orderId) {
-      this.updateOrder(orderId, "accepté");
+      this.updateOrder(orderId, "accepted");
     },
     refuseOrder(orderId) {
-      this.updateOrder(orderId, "refusé");
+      this.updateOrder(orderId, "refused");
     },
   },
   async created() {
