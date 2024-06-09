@@ -1,9 +1,22 @@
-import DeliveryPage from '@/components/client_DeliveryPage.vue'
+import {
+  getUserOrders,
+  getUserPendingOrders,
+} from "@/services/HandlerGetOrders";
 
 export default {
-  name: 'DeliveryPage',
-  components: {
-    DeliveryPage
-  }
+  data() {
+    return {
+      orders: [],
+      pending: [],
+    };
+  },
+  async mounted() {
+    try {
+      this.orders = await getUserOrders(1);
+      this.pending = await getUserPendingOrders(1);
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+    }
+  },
+  methods: {},
 };
-
