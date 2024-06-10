@@ -1,0 +1,175 @@
+button {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 24px;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 24px;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 4%;
+  }
+
+  h3 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 18px;
+    padding: 0;
+    box-sizing: border-box;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 2%;
+  }
+
+header {
+  width: 95%;
+  text-align: center;
+  color: white;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1%;
+  margin: auto;
+  position: relative;
+}
+
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10px;
+  width: 20%;
+}
+
+.back {
+  border: dashed #F9E4C4;
+  padding: 16px;
+  background-color: #DDA476;
+  border-radius: 16px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.back:hover {
+  background-color: #F9E4C4;
+  border: dashed #DDA476;
+  color: #DDA476;
+}
+
+header {
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 3%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem;
+}
+
+.meal-selection, .cart, .sidebar {
+  background-color: #E0E0E0;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.meal-selection {
+    flex: 2;
+    padding: 1rem;
+    background-color: #DDA476;
+    border-radius: 15px;
+    border: dashed #F9E4C4;
+    margin-right: 1%;
+}
+
+.cart, .sidebar {
+  flex: 1;
+  margin-left: 1rem;
+  background-color: #DDA476;
+  border-radius: 15px;
+  border: dashed #F9E4C4;
+}
+
+.meal-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.meal {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.cart-item, .cart-total {
+  background-color: #ffffff;
+  border: solid #F9E4C4;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.cart-item p, .cart-total p {
+  margin: 0;
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #1899D6;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1CB0F6;
+}
+
+.sidebar button {
+  margin-bottom: 1rem;
+  background-color: #1899D6;
+}
+
+.sidebar button:hover {
+    background-color: #1CB0F6;
+  }
+
+.referral input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

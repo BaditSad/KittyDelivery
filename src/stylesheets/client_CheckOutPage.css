@@ -1,0 +1,121 @@
+header {
+    width: 95%;
+    text-align: center;
+    color: white;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    margin: auto;
+    position: relative;
+  }
+
+  .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    width: 20%;
+  }
+
+img {
+
+    padding-bottom: 1%;
+    width: 20%;
+}
+
+.back {
+    border: dashed #F9E4C4;
+    padding: 16px;
+    background-color: #DDA476;
+    border-radius: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 20px;
+    outline: none;
+    text-align: center;
+    text-transform: uppercase;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .back:hover {
+    background-color: #F9E4C4;
+    border: dashed #DDA476;
+    color: #DDA476;
+  }
+
+.order-summary {
+    background-color: #DDA476;
+    color: #ffffff;
+    padding: 10px;
+    padding-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 25%;
+    margin: 0 auto;
+}
+
+.order-details {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.pay-button,
+.cancel-button {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.pay-button {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.cancel-button {
+    background-color: #cccccc;
+    color: #ffffff;
+}

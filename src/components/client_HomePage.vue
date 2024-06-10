@@ -2,20 +2,21 @@
 <style src="../stylesheets/client_HomePage.css" scoped></style>
 
 <template>
-    <header>
-      <img class="logo" src="../assets/logo.jpg" alt="Kitty Delivery logo" />
-      <img class="title" src="../assets/title.png" alt="Kitty Delivery title" />
-      <router-link to="/profile">
-          <button class="profile_button">Profile</button>
-      </router-link>
-    </header>
-    <div class="container">
+  <header>
+    <img class="logo" src="../assets/logo.jpg" alt="Kitty Delivery logo" />
+    <img class="title" src="../assets/title.png" alt="Kitty Delivery title" />
+    <router-link to="/client/profile">
+      <button class="profile_button">Profile</button>
+    </router-link>
+  </header>
+  <div class="container">
     <div class="main">
       <div class="rest-card">
         <h1>Restaurant à proximité &#127828;</h1>
         <div class="card-rests">
-          <div class="card-rest"> Restaurant
-          </div>
+          <router-link to="/client/selectmeal">
+            <div class="card-rest"> Restaurant </div>
+          </router-link>
         </div>
       </div>
       <div class="sidebar">
@@ -32,4 +33,4 @@
       </div>
     </div>
   </div>
-  </template>
+</template>
