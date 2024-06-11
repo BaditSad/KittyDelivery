@@ -3,16 +3,15 @@
 
 <template>
   <header>
-    <img class="logo" src="../assets/logo.jpg" alt="Kitty Delivery logo" />
     <img class="title" src="../assets/title.png" alt="Kitty Delivery title" />
-    <router-link to="/rest/profile">
-      <button class="profile_button">Profile</button>
+    <router-link to="/rest/home">
+      <button class="profile_button">Back</button>
     </router-link>
   </header>
   <div class="container">
     <div class="main">
       <div class="menu-card">
-        <h1>Ma carte &#127828;</h1>
+        <h1>Mes articles &#127828;</h1>
         <div class="card-items">
           <div
             class="card-item"
@@ -44,29 +43,8 @@
           </div>
         </div>
         <button class="add-button" @click="showAddMenuForm">
-          Ajouter un menu
+          Ajouter un article
         </button>
-      </div>
-      <div class="sidebar">
-        <button>Mes commandes et statistiques</button>
-        <div class="delivery-status">
-          <h3>Suivi de livraisons</h3>
-          <p class="delivery">Pas de livraison en cours</p>
-          <div class="progress-bar">
-            <div class="progress"></div>
-          </div>
-        </div>
-        <div class="referral">
-          <h3>Parrainage</h3>
-          <label>
-            <input
-              class="text"
-              type="email"
-              placeholder="Adresse mail à parrainer"
-            />
-          </label>
-          <button>Parrainer</button>
-        </div>
       </div>
     </div>
     <!--- popup edit menu -->

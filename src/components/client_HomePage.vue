@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="sidebar">
-        <router-link to="/stats">
+        <router-link to="/client/delivery">
           <button class="commands">Mes commandes</button>
         </router-link>
         <div class="referral">
