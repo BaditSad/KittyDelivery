@@ -5,7 +5,7 @@
   <header>
     <img class="title" src="../assets/title.png" alt="Kitty Delivery title" />
     <router-link to="/rest/home">
-      <button class="profile_button">Back</button>
+      <button class="profile_button">Retour</button>
     </router-link>
   </header>
   <div class="order-container">

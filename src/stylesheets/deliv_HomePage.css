@@ -11,6 +11,124 @@ h2 {
   margin-bottom: 2%;
 }
 
+.accept {
+  appearance: button;
+  background-color: #87af51;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  margin: 20px 0 10px;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  transition: filter 0.2s;
+  user-select: none;
+  width: 40%;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.accept:after {
+  background-clip: padding-box;
+  background-color: #a6c37f;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  z-index: -1;
+}
+
+.accept:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.accept:disabled {
+  cursor: auto;
+}
+
+.accept:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+.refuse {
+  appearance: button;
+  background-color: #D35452;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  margin: 20px 0 10px;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  transition: filter 0.2s;
+  user-select: none;
+  width: 40%;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.refuse:after {
+  background-clip: padding-box;
+  background-color: #EE9180;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  z-index: -1;
+}
+
+.refuse:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.refuse:disabled {
+  cursor: auto;
+}
+
+.refuse:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 18px;
+}
+
 header {
   width: 95%;
   text-align: center;
@@ -60,4 +178,18 @@ header {
   background-color: #F9E4C4;
   border: dashed #DDA476;
   color: #DDA476;
+}
+
+section {
+  width: 90%;
+  max-width: 600px;
+  background: #DDA476;
+  border-radius: 30px;
+  border: dashed #F9E4C4;
+  padding: 15px;
+  margin: auto;
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

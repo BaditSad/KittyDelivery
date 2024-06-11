@@ -12,7 +12,7 @@
     </header>
 
     <section>
-      <h2>Mes livraisons :</h2>
+      <h2>Livraisons disponibles :</h2>
       <ul>
         <li v-for="order in orders" :key="order._id">
           <p>
@@ -21,8 +21,10 @@
           </p>
           <p>Commande : {{ order.order_items }}</p>
           <p>Prix de la livraison : {{ order.order_total_amount }}</p>
-          <button @click="acceptOrder(order._id)">Accept</button>
-          <button @click="refuseOrder(order._id)">Refuse</button>
+          <router-link to="/deliv/tracking">
+            <button class="accept" @click="acceptOrder(order._id)">Accept</button>
+          </router-link>
+          <button class="refuse" @click="refuseOrder(order._id)">Refuse</button>
         </li>
       </ul>
     </section>

@@ -8,6 +8,7 @@
       <button class="back">Retour</button>
     </router-link>
   </header>
+  <div class="profile-section-container">
   <div class="container_profile">
     <form class="form">
       <h1>Votre profil Kitty</h1>
@@ -75,7 +76,7 @@
   </div>
 
   <section>
-    <h2>Livraisons effectuées :</h2>
+    <h1>Livraisons effectuées :</h1>
     <ul>
       <li v-for="order in orders" :key="order._id">
         <p>Livraison effectuée le {{ order.delivery_date }}</p>
@@ -86,4 +87,6 @@
       </li>
     </ul>
   </section>
+</div>
+
 </template>
