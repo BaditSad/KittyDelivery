@@ -3,10 +3,9 @@
 
 <template>
     <header>
-      <img class="logo" src="../assets/logo.jpg" alt="Kitty Delivery logo" />
       <img class="title" src="../assets/title.png" alt="Kitty Delivery title" />
-      <router-link to="/profile">
-          <button class="profile_button">Profile</button>
-      </router-link>
+    <router-link to="/tech">
+      <button class="profile_button">Retour</button>
+    </router-link>
     </header>
   </template>

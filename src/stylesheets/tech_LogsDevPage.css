@@ -61,8 +61,8 @@ header {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     padding: 1rem;
-    overflow-y: auto; /* Permettre le défilement vertical */
-    max-height: 60vh; /* Limite la hauteur maximale */
+    overflow-y: auto;
+    max-height: 60vh;
     margin-bottom: 3%;
   }
 
