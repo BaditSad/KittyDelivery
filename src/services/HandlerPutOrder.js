@@ -1,12 +1,13 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:3000/api";
+import apiGateway from "../../axios.config";
 
 export const updateOrderStatus = async (orderId, newStatus) => {
   try {
-    const response = await axios.put(`${API_URL}/mc_order/orders/status/${orderId}`, {
-      order_status: newStatus,
-    });
+    const response = await apiGateway.put(
+      `/mc_order/orders/status/${orderId}`,
+      {
+        order_status: newStatus,
+      }
+    );
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la mise à jour de la commande:", error);
@@ -16,8 +17,8 @@ export const updateOrderStatus = async (orderId, newStatus) => {
 
 export const updateDeliveryPersonAccept = async (orderId, newDeliverId) => {
   try {
-    const response = await axios.put(
-      `${API_URL}/mc_order/deliveries/accept/${orderId}`,
+    const response = await apiGateway.put(
+      `/mc_order/deliveries/accept/${orderId}`,
       {
         delivery_person_accept_id: newDeliverId,
       }
@@ -31,8 +32,8 @@ export const updateDeliveryPersonAccept = async (orderId, newDeliverId) => {
 
 export const updateDeliveryPersonRefuse = async (orderId, newDeliverId) => {
   try {
-    const response = await axios.put(
-      `${API_URL}/mc_order/deliveries/refuse/${orderId}`,
+    const response = await apiGateway.put(
+      `/mc_order/deliveries/refuse/${orderId}`,
       {
         delivery_person_refuse_id: newDeliverId,
       }
@@ -46,8 +47,8 @@ export const updateDeliveryPersonRefuse = async (orderId, newDeliverId) => {
 
 export const updateDeliveryStatus = async (orderId, newStatus) => {
   try {
-    const response = await axios.put(
-      `${API_URL}/mc_order/deliveries/status/${orderId}`,
+    const response = await apiGateway.put(
+      `/mc_order/deliveries/status/${orderId}`,
       {
         delivery_status: newStatus,
       }

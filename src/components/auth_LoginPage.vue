@@ -10,10 +10,20 @@
       <form class="form">
         <h1>Connexion avec votre compte Kitty ! &#9995;</h1>
         <label class="text">
-          <input v-model="email" class="text" type="text" placeholder="Adresse email" />
-          </label>
-          <label class="text">
-          <input v-model="password" class="text" type="password" placeholder="Mot de passe" />
+          <input
+            v-model="email"
+            class="text"
+            type="text"
+            placeholder="Adresse email"
+          />
+        </label>
+        <label class="text">
+          <input
+            v-model="password"
+            class="text"
+            type="password"
+            placeholder="Mot de passe"
+          />
         </label>
         <button class="button-login" type="button" @click="login">
           <i class="icon ion-md-lock"></i> Connexion

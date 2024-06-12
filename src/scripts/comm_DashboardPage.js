@@ -23,7 +23,4 @@ export default {
       }
     },
   },
-  created() {
-    this.refreshOrders();
-  },
 };

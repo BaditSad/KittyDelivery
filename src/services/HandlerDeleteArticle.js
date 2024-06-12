@@ -1,10 +1,8 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:3000/api";
+import apiGateway from "../../axios.config";
 
 export const deleteArticle = async (articleId) => {
   try {
-    const response = await axios.delete(`${API_URL}/mc_article/${articleId}`);
+    const response = await apiGateway.delete(`/mc_article/${articleId}`);
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la suppression de l'article:", error);

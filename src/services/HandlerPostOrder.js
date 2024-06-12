@@ -1,6 +1,4 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:3000/api";
+import apiGateway from "../../axios.config";
 
 export const postOrder = async (totalAmount, orderItems) => {
   try {
@@ -11,7 +9,7 @@ export const postOrder = async (totalAmount, orderItems) => {
     const restaurantAddress = "6 Main Volley, Ville B";
     const deliveryAddress = "13 Main Street, Ville A";
 
-    const response = await axios.post(`${API_URL}/mc_order/orders`, {
+    const response = await apiGateway.post(`/mc_order/orders`, {
       user_id: userId,
       user_name: userName,
       restaurant_id: restaurantId,

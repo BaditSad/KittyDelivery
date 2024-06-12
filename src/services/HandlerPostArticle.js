@@ -1,10 +1,8 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:3000/api";
+import apiGateway from "../../axios.config";
 
 export const postArticle = async (data) => {
   try {
-    const response = await axios.post(`${API_URL}/mc_article`, data);
+    const response = await apiGateway.post(`/mc_article`, data);
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la création de l'article:", error);

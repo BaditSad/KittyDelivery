@@ -1,7 +1,8 @@
-import { login } from '@/services/authService.js';
+import { postUserLogin } from "@/services/HandlerPostAuth.js";
+
 export default {
-  name: 'Auth_LoginPage',
-   data() {
+  name: "Auth_LoginPage",
+  data() {
     return {
       email: "",
       password: "",
@@ -10,14 +11,13 @@ export default {
   methods: {
     async login() {
       try {
-        // eslint-disable-next-line
-        const user = await login(this.email, this.password
-        );
-        this.$router.push({ name: 'Home' });
-      }
-      catch (error) {
-        console.error('Login error:', error.message);
+        const response = await postUserLogin(this.email, this.password);
+        if (response.data) {
+          this.$router.push({ name: "Home" });
+        }
+      } catch (error) {
+        console.error("Login error:", error.message);
       }
     },
-  }
+  },
 };

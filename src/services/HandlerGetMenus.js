@@ -1,11 +1,9 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:3000/api";
+import apiGateway from "../../axios.config";
 
 export const getMenus = async (restaurantId) => {
   restaurantId = 1;
   try {
-    const response = await axios.get(`${API_URL}/mc_menu/${restaurantId}`);
+    const response = await apiGateway.get(`/mc_menu/${restaurantId}`);
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la récupération de menu:", error);

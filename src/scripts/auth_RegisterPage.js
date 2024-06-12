@@ -1,43 +1,41 @@
-import Auth_RegisterPage from '@/components/auth_RegisterPage.vue';
-import { register } from '@/services/authService.js';
+import { postUserRegister } from "@/services/HandlerPostAuth";
+
 export default {
-  name: 'Auth_RegisterPage',
-  components: {
-    Auth_RegisterPage
+  data() {
+    return {
+      email: "",
+      username: "",
+      address: "",
+      phone: "",
+      password: "",
+      passwordConfirm: "",
+      role: "client",
+    };
   },
-  data: () => ({
-    email: "",
-    password: "",
-    role:"",
-    passwordConfirm: "",
-    first_name: "",
-    last_name: "",
-    phone_number: "",
-    address: "",
-    username:''
-  }),
   methods: {
     async register() {
-      try {
-        const userData = {
-          email: this.email,
-          confirmPassword: this.passwordConfirm,
-          password: this.password,
-          username: this.username,
-          first_name: this.first_name,
-          last_name: this.last_name,
-          phone_number: this.phone_number,
-          address: this.address,
-          
-        };
-        // eslint-disable-next-line
-        const user = await register(userData);
-        this.$router.push({ name: 'Home' });
+      if (this.password !== this.passwordConfirm) {
+        alert("Les mots de passe ne correspondent pas !");
+        return;
       }
-      catch (error) {
-        console.error('Registration error:', error.message);
+      try {
+        const response = await postUserRegister(
+          this.email,
+          this.username,
+          this.address,
+          this.phone,
+          this.password,
+          this.role
+        );
+        if (response.status === 201) {
+          alert(response.data.msg);
+          this.$router.push("/");
+        }
+      } catch (error) {
+        alert(
+          error.response.data.message || "Erreur lors de la création du compte."
+        );
       }
     },
-  }
+  },
 };
-
