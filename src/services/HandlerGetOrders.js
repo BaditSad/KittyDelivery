@@ -13,7 +13,7 @@ export const getAllOrders = async () => {
 export const getRestaurantOrders = async (restaurantId) => {
   try {
     const response = await apiGateway.get(
-      `/mc_order/orders/restaurant/${restaurantId}`
+      `/mc_order/restaurant/${restaurantId}`
     );
     return response.data;
   } catch (error) {

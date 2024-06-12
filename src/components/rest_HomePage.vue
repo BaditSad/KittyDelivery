@@ -12,17 +12,32 @@
   <div class="container">
     <div class="main">
       <div class="menu-card">
-        <h1>Ma carte &#127839;</h1>
+        <h1>Mes articles &#127828;</h1>
         <div class="card-items">
-          <div class="card-item" v-for="(item, index) in articlesItems" :key="index">
-            <p class="item">{{ item.article_name }}</p>
-            <p class="item">{{ item.article_description }}</p>
-            <p class="item">Prix : {{ item.article_price }} €</p>
+          <div
+            class="card-item"
+            v-for="(item, index) in menuItems"
+            :key="index"
+          >
+            <p class="item">{{ item.menu_name }}</p>
+            <p class="item">{{ item.menu_description }}</p>
+            <ul>
+              <p
+                v-for="(article, articleIndex) in item.article_list"
+                :key="articleIndex"
+              >
+                {{ article }}
+              </p>
+            </ul>
+            <p class="item">Prix : {{ item.menu_price }} €</p>
             <div class="buttons">
-              <button class="button-update" @click="selectItemForEdit(item, index)">
+              <button
+                class="button-update"
+                @click="selectMenuForEdit(item, index)"
+              >
                 Modifier
               </button>
-              <button class="button-delete" @click="deleteItem(item)">
+              <button class="button-delete" @click="deleteMenu(item)">
                 Supprimer
               </button>
             </div>
@@ -32,10 +47,7 @@
           Ajouter un menu
         </button>
         <router-link to="/rest/articles">
-
-          <button class="add-button">
-            Ajouter des articles
-          </button>
+          <button class="add-button">Ajouter des articles</button>
         </router-link>
       </div>
       <div class="sidebar">
@@ -57,7 +69,11 @@
         <div class="referral">
           <h3>Parrainage</h3>
           <label>
-            <input class="text" type="email" placeholder="Adresse mail à parrainer" />
+            <input
+              class="text"
+              type="email"
+              placeholder="Adresse mail à parrainer"
+            />
           </label>
           <button>Parrainer</button>
         </div>
@@ -68,9 +84,23 @@
     <div v-if="selectedItem" class="edit-form">
       <h2>Modifier l'article</h2>
       <form @submit.prevent="modifierItem">
-        <input type="text" v-model="editItem.article_name" placeholder="Nom de l'article" required />
-        <textarea v-model="editItem.article_description" placeholder="Description" required></textarea>
-        <input type="number" v-model="editItem.article_price" placeholder="Prix" required />
+        <input
+          type="text"
+          v-model="editItem.article_name"
+          placeholder="Nom de l'article"
+          required
+        />
+        <textarea
+          v-model="editItem.article_description"
+          placeholder="Description"
+          required
+        ></textarea>
+        <input
+          type="number"
+          v-model="editItem.article_price"
+          placeholder="Prix"
+          required
+        />
         <button type="submit">Enregistrer</button>
         <button type="button" @click="cancelEdit">Annuler</button>
       </form>
@@ -80,10 +110,29 @@
     <div v-if="isAddingArticle" class="add-form">
       <h2>Ajouter un nouvel article</h2>
       <form @submit.prevent="addItem">
-        <input type="text" v-model="newArticle.article_name" placeholder="Nom de l'article" required />
-        <input type="text" v-model="newArticle.article_type" placeholder="Type de l'article" required />
-        <textarea v-model="newArticle.article_description" placeholder="Description" required></textarea>
-        <input type="number" v-model="newArticle.article_price" placeholder="Prix" required />
+        <input
+          type="text"
+          v-model="newArticle.article_name"
+          placeholder="Nom de l'article"
+          required
+        />
+        <input
+          type="text"
+          v-model="newArticle.article_type"
+          placeholder="Type de l'article"
+          required
+        />
+        <textarea
+          v-model="newArticle.article_description"
+          placeholder="Description"
+          required
+        ></textarea>
+        <input
+          type="number"
+          v-model="newArticle.article_price"
+          placeholder="Prix"
+          required
+        />
         <button type="submit">Ajouter</button>
         <button type="button" @click="cancelAddArticle">Annuler</button>
       </form>

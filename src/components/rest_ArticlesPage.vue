@@ -11,32 +11,24 @@
   <div class="container">
     <div class="main">
       <div class="menu-card">
-        <h1>Mes articles &#127828;</h1>
+        <h1>Ma carte &#127839;</h1>
         <div class="card-items">
           <div
             class="card-item"
-            v-for="(item, index) in menuItems"
+            v-for="(item, index) in articlesItems"
             :key="index"
           >
-            <p class="item">{{ item.menu_name }}</p>
-            <p class="item">{{ item.menu_description }}</p>
-            <ul>
-              <p
-                v-for="(article, articleIndex) in item.article_list"
-                :key="articleIndex"
-              >
-                {{ article }}
-              </p>
-            </ul>
-            <p class="item">Prix : {{ item.menu_price }} €</p>
+            <p class="item">{{ item.article_name }}</p>
+            <p class="item">{{ item.article_description }}</p>
+            <p class="item">Prix : {{ item.article_price }} €</p>
             <div class="buttons">
               <button
                 class="button-update"
-                @click="selectMenuForEdit(item, index)"
+                @click="selectItemForEdit(item, index)"
               >
                 Modifier
               </button>
-              <button class="button-delete" @click="deleteMenu(item)">
+              <button class="button-delete" @click="deleteItem(item)">
                 Supprimer
               </button>
             </div>
@@ -47,6 +39,7 @@
         </button>
       </div>
     </div>
+
     <!--- popup edit menu -->
     <div v-if="selectedItem" class="edit-form">
       <h2>Modifier le menu</h2>
