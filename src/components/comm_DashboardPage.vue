@@ -2,12 +2,16 @@
 <style src="../stylesheets/comm_DashboardPage.css" scoped></style>
 
 <template>
+  <header>
+    <router-link to="/comm">
+      <button class="profile_button">Retour</button>
+    </router-link>
+    <img class="title" src="../assets/title.png" alt="Kitty Delivery title" />
+  </header>
   <div class="order-container">
     <h1>Suivi des Commandes</h1>
     <div v-if="loading" class="loading">Chargement...</div>
-    <div v-if="!loading && !orders">
-      Aucune commande trouvée.
-    </div>
+    <div v-if="!loading && !orders">Aucune commande trouvée.</div>
     <div>
       <label for="userIdInput">ID Utilisateur:</label>
       <input
@@ -33,9 +37,7 @@
               <span v-else-if="order.order_status === 'refusé'">Refusée</span>
             </div>
             <div v-if="order.order_status === 'accepté'">
-              <div v-if="order.delivery_person_id === 0">
-                Livreur non assigné.
-              </div>
+              <div v-if="order.delivery_person_id === 0">Livreur non assigné.</div>
               <div v-else>
                 Livreur #{{ order.delivery_person_id }} est en train de livrer.
               </div>
