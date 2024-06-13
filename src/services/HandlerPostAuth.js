@@ -6,6 +6,9 @@ export const postUserLogin = async (email, password) => {
       email: email,
       password: password,
     });
+    localStorage.setItem("id", response.data.id);
+    localStorage.setItem("address", response.data.address);
+    localStorage.setItem("role", response.data.role);
     localStorage.setItem("accessToken", response.data.token);
     return response.data;
   } catch (error) {
