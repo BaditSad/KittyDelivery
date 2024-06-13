@@ -36,33 +36,6 @@ header {
   width: 20%;
 }
 
-.profile_button {
-  border: dashed #F9E4C4;
-  padding: 16px;
-  background-color: #DDA476;
-  border-radius: 16px;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 20px;
-  outline: none;
-  text-align: center;
-  text-transform: uppercase;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-  position: relative;
-}
-
-.profile_button:hover {
-  background-color: #F9E4C4;
-  border: dashed #DDA476;
-  color: #DDA476;
-}
-
 h2 {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: -0.2px;

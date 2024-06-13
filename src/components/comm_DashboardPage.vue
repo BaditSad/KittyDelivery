@@ -4,23 +4,22 @@
 <template>
   <header>
     <router-link to="/comm">
-      <button class="profile_button">Retour</button>
+      <button class="back">Retour</button>
     </router-link>
     <img class="title" src="../assets/title.png" alt="Kitty Delivery title" />
   </header>
   <div class="order-container">
     <h1>Suivi des Commandes</h1>
-    <div v-if="loading" class="loading">Chargement...</div>
+    <h3 v-if="loading" class="loading">Chargement...</h3>
     <div v-if="!loading && !orders">Aucune commande trouvée.</div>
-    <div>
-      <label for="userIdInput">ID Utilisateur:</label>
+    <div class="search-container">
       <input
         v-model="userId"
         id="userIdInput"
         type="text"
         placeholder="Entrez l'ID utilisateur"
       />
-      <button @click="refreshOrders">Rechercher</button>
+      <button class="button-search" @click="refreshOrders">Rechercher</button>
     </div>
 
     <div>
