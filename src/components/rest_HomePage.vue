@@ -19,17 +19,19 @@
             v-for="(item, index) in menuItems"
             :key="index"
           >
+            {{ console.log('Menu Item:', item, index) }} 
+            <img :src="'http://localhost:3008' + item.Menu_image" class="Menu_image" alt="menu image" />
             <p class="item">{{ item.menu_name }}</p>
             <p class="item">{{ item.menu_description }}</p>
+            <p class="item">Prix : {{ item.menu_price }} €</p>
             <ul>
-              <p
+              <li
                 v-for="(article, articleIndex) in item.article_list"
                 :key="articleIndex"
               >
                 {{ article }}
-              </p>
+              </li>
             </ul>
-            <p class="item">Prix : {{ item.menu_price }} €</p>
             <div class="buttons">
               <button
                 class="button-update"
@@ -43,7 +45,7 @@
             </div>
           </div>
         </div>
-        <button class="add-button" @click="showAddArticleForm">
+        <button class="add-button" @click="showAddMenuForm">
           Ajouter un menu
         </button>
         <router-link to="/rest/articles">
@@ -80,7 +82,7 @@
       </div>
     </div>
 
-    <!--- popup edit menu -->
+    <!-- popup edit menu -->
     <div v-if="selectedItem" class="edit-form">
       <h2>Modifier le menu</h2>
       <form @submit.prevent="updateMenu">
@@ -116,12 +118,13 @@
           placeholder="Prix"
           required
         />
+        <input type="file" @change="handleFileUploadEdit" /> <!-- Champ de téléchargement pour modifier l'image du menu -->
         <button type="submit">Enregistrer</button>
         <button type="button" @click="cancelEditMenu">Annuler</button>
       </form>
     </div>
 
-    <!--- popup add menu -->
+    <!-- popup add menu -->
     <div v-if="isAddingMenu" class="add-form">
       <h2>Ajouter un nouveau menu</h2>
       <form @submit.prevent="addMenu">
@@ -157,11 +160,10 @@
           placeholder="Prix"
           required
         />
+        <input type="file" @change="handleFileUpload" /> <!-- Champ de téléchargement pour ajouter une image au nouveau menu -->
         <button type="submit">Ajouter</button>
         <button type="button" @click="cancelAddMenu">Annuler</button>
       </form>
     </div>
-    
-    
   </div>
 </template>

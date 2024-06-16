@@ -11,6 +11,13 @@ h1 {
   margin-bottom: 2%;
 }
 
+.Menu_image {
+  object-fit: cover;
+  width: 5.5rem;
+  overflow: hidden;
+}
+
+
 header {
   width: 95%;
   text-align: center;

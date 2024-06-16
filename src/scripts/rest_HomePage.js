@@ -16,13 +16,15 @@ export default {
         menu_description: "",
         menu_price: 0,
         article_list: [""],
+        Menu_image: null, // Ajout du champ Menu_image
       },
       isAddingMenu: false, // Propriété pour suivre l'état du formulaire d'ajout
     };
   },
   async mounted() {
     try {
-      this.menuItems = await getMenus();
+      this.menuItems = (await getMenus()).menus;
+      console.log("🚀 ~ mounted ~ this.menuItems:", this.menuItems)
     } catch (error) {
       console.error("Erreur lors de la récupération des menus:", error);
     }
@@ -44,14 +46,26 @@ export default {
         }
       }
     },
+    handleFileUpload(event) {
+      this.newMenu.Menu_image = event.target.files[0]; // Gestion de l'upload de fichier pour le nouveau menu
+    },
+    handleFileUploadEdit(event) {
+      this.editItem.Menu_image = event.target.files[0]; // Gestion de l'upload de fichier pour l'édition de menu
+    },
     async addMenu() {
       try {
-        //need to call user => restaurant_id
-        this.newMenu.restaurant_id = "1";
-        const createdMenu = await postMenu(this.newMenu);
+        const formData = new FormData(); // Création d'un objet FormData pour les données du formulaire
+        formData.append('restaurant_id',this.newMenu.restaurant_id); // Ajout de l'ID du restaurant
+        formData.append('menu_name', this.newMenu.menu_name);
+        formData.append('menu_description', this.newMenu.menu_description);
+        formData.append('menu_price', this.newMenu.menu_price);
+        formData.append('article_list',this.newMenu.article_list); // Conversion de la liste des articles en chaîne JSON
+        formData.append('Menu_image', this.newMenu.Menu_image); // Ajout de l'image du menu
+    
+        const createdMenu = await postMenu(formData); // Envoi des données du formulaire
         this.menuItems.push(createdMenu);
         this.resetNewMenu();
-        this.isAddingMenu = false;
+        this.isAddingMenu = false; // Masquer le formulaire d'ajout après l'ajout
       } catch (error) {
         console.error("Erreur lors de la création du menu:", error);
       }
@@ -62,6 +76,7 @@ export default {
         menu_description: "",
         menu_price: 0,
         article_list: [""],
+        Menu_image: null, // Réinitialisation de l'image du menu
       };
     },
     selectMenuForEdit(item, index) {
@@ -71,8 +86,18 @@ export default {
     },
     async updateMenu() {
       try {
-        await updateMenu(this.editItem._id, this.editItem);
-        this.menuItems.splice(this.selectedIndex, 1, this.editItem);
+        const formData = new FormData(); // Création d'un objet FormData pour les données du formulaire
+        formData.append('restaurant_id', this.editItem.restaurant_id);
+        formData.append('menu_name', this.editItem.menu_name);
+        formData.append('menu_description', this.editItem.menu_description);
+        formData.append('menu_price', this.editItem.menu_price);
+        formData.append('article_list', JSON.stringify(this.editItem.article_list)); // Conversion de la liste des articles en chaîne JSON
+        if (this.editItem.Menu_image) { // Ajout de l'image si elle existe
+          formData.append('Menu_image', this.editItem.Menu_image);
+        }
+    
+        const updatedMenu = await updateMenu(this.editItem._id, formData); // Envoi des données du formulaire
+        this.menuItems.splice(this.selectedIndex, 1, updatedMenu);
         this.selectedItem = null;
         this.editItem = null;
         this.selectedIndex = null;
