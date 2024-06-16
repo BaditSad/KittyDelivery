@@ -18,6 +18,7 @@
             v-for="(item, index) in articlesItems"
             :key="index"
           >
+            <img :src="'http://localhost:3000/api/mc_article'+ item.article_image" classe="article_image" alt="article image" />
             <p class="item">{{ item.article_name }}</p>
             <p class="item">{{ item.article_description }}</p>
             <p class="item">Prix : {{ item.article_price }} €</p>
@@ -34,91 +35,69 @@
             </div>
           </div>
         </div>
-        <button class="add-button" @click="showAddMenuForm">
+        <button class="add-button" @click="showAddArticleForm">
           Ajouter un article
         </button>
       </div>
     </div>
 
-    <!--- popup edit menu -->
+    <!-- popup edit article -->
     <div v-if="selectedItem" class="edit-form">
-      <h2>Modifier le menu</h2>
-      <form @submit.prevent="updateMenu">
+      <h2>Modifier l'article</h2>
+      <form @submit.prevent="modifierItem" >
         <input
           type="text"
-          v-model="editItem.menu_name"
-          placeholder="Nom du menu"
+          v-model="editItem.article_name"
+          placeholder="Nom de l'article"
           required
         />
         <textarea
-          v-model="editItem.menu_description"
+          v-model="editItem.article_description"
           placeholder="Description"
           required
         ></textarea>
-        <div
-          v-for="(article, articleIndex) in editItem.article_list"
-          :key="articleIndex"
-        >
-          <input
-            type="text"
-            v-model="editItem.article_list[articleIndex]"
-            :placeholder="'Article ' + (articleIndex + 1)"
-            required
-          />
-          <button type="button" @click="removeArticle(articleIndex)">
-            Supprimer
-          </button>
-        </div>
-        <button type="button" @click="addArticle">Ajouter un article</button>
         <input
           type="number"
-          v-model="editItem.menu_price"
+          v-model="editItem.article_price"
           placeholder="Prix"
           required
         />
+        <input type="file" class="article_image" @change="handleFileUploadEdit" />
         <button type="submit">Enregistrer</button>
-        <button type="button" @click="cancelEditMenu">Annuler</button>
+        <button type="button" @click="cancelEdit">Annuler</button>
       </form>
     </div>
 
-    <!--- popup add menu -->
-    <div v-if="isAddingMenu" class="add-form">
-      <h2>Ajouter un nouveau menu</h2>
-      <form @submit.prevent="addMenu">
+    <!-- popup add article -->
+    <div v-if="isAddingArticle" class="add-form">
+      <h2>Ajouter un nouvel article</h2>
+      <form @submit.prevent="addItem">
         <input
           type="text"
-          v-model="newMenu.menu_name"
-          placeholder="Nom du menu"
+          v-model="newArticle.article_name"
+          placeholder="Nom de l'article"
+          required
+        />
+        <input
+          type="text"
+          v-model="newArticle.article_type"
+          placeholder="Type de l'article"
           required
         />
         <textarea
-          v-model="newMenu.menu_description"
+          v-model="newArticle.description"
           placeholder="Description"
           required
         ></textarea>
-        <div
-          v-for="(article, articleIndex) in newMenu.article_list"
-          :key="articleIndex"
-        >
-          <input
-            type="text"
-            v-model="newMenu.article_list[articleIndex]"
-            :placeholder="'Article ' + (articleIndex + 1)"
-            required
-          />
-          <button type="button" @click="removeNewArticle(articleIndex)">
-            Supprimer
-          </button>
-        </div>
-        <button type="button" @click="addNewArticle">Ajouter un article</button>
         <input
           type="number"
-          v-model="newMenu.menu_price"
+          v-model="newArticle.price"
           placeholder="Prix"
           required
         />
+        <input type="file" @change="handleFileUpload" />
         <button type="submit">Ajouter</button>
-        <button type="button" @click="cancelAddMenu">Annuler</button>
+        <button type="button" @click="cancelAddArticle">Annuler</button>
       </form>
     </div>
   </div>

@@ -80,62 +80,88 @@
       </div>
     </div>
 
-    <!-- popup edit article -->
+    <!--- popup edit menu -->
     <div v-if="selectedItem" class="edit-form">
-      <h2>Modifier l'article</h2>
-      <form @submit.prevent="modifierItem">
+      <h2>Modifier le menu</h2>
+      <form @submit.prevent="updateMenu">
         <input
           type="text"
-          v-model="editItem.article_name"
-          placeholder="Nom de l'article"
+          v-model="editItem.menu_name"
+          placeholder="Nom du menu"
           required
         />
         <textarea
-          v-model="editItem.article_description"
+          v-model="editItem.menu_description"
           placeholder="Description"
           required
         ></textarea>
+        <div
+          v-for="(article, articleIndex) in editItem.article_list"
+          :key="articleIndex"
+        >
+          <input
+            type="text"
+            v-model="editItem.article_list[articleIndex]"
+            :placeholder="'Article ' + (articleIndex + 1)"
+            required
+          />
+          <button type="button" @click="removeArticle(articleIndex)">
+            Supprimer
+          </button>
+        </div>
+        <button type="button" @click="addArticle">Ajouter un article</button>
         <input
           type="number"
-          v-model="editItem.article_price"
+          v-model="editItem.menu_price"
           placeholder="Prix"
           required
         />
         <button type="submit">Enregistrer</button>
-        <button type="button" @click="cancelEdit">Annuler</button>
+        <button type="button" @click="cancelEditMenu">Annuler</button>
       </form>
     </div>
 
-    <!-- popup add article -->
-    <div v-if="isAddingArticle" class="add-form">
-      <h2>Ajouter un nouvel article</h2>
-      <form @submit.prevent="addItem">
+    <!--- popup add menu -->
+    <div v-if="isAddingMenu" class="add-form">
+      <h2>Ajouter un nouveau menu</h2>
+      <form @submit.prevent="addMenu">
         <input
           type="text"
-          v-model="newArticle.article_name"
-          placeholder="Nom de l'article"
-          required
-        />
-        <input
-          type="text"
-          v-model="newArticle.article_type"
-          placeholder="Type de l'article"
+          v-model="newMenu.menu_name"
+          placeholder="Nom du menu"
           required
         />
         <textarea
-          v-model="newArticle.article_description"
+          v-model="newMenu.menu_description"
           placeholder="Description"
           required
         ></textarea>
+        <div
+          v-for="(article, articleIndex) in newMenu.article_list"
+          :key="articleIndex"
+        >
+          <input
+            type="text"
+            v-model="newMenu.article_list[articleIndex]"
+            :placeholder="'Article ' + (articleIndex + 1)"
+            required
+          />
+          <button type="button" @click="removeNewArticle(articleIndex)">
+            Supprimer
+          </button>
+        </div>
+        <button type="button" @click="addNewArticle">Ajouter un article</button>
         <input
           type="number"
-          v-model="newArticle.article_price"
+          v-model="newMenu.menu_price"
           placeholder="Prix"
           required
         />
         <button type="submit">Ajouter</button>
-        <button type="button" @click="cancelAddArticle">Annuler</button>
+        <button type="button" @click="cancelAddMenu">Annuler</button>
       </form>
     </div>
+    
+    
   </div>
 </template>
