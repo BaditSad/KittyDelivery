@@ -192,4 +192,40 @@ const router = createRouter({
   routes,
 });
 
+const getUserRole = () => {
+  return localStorage.getItem("role");
+};
+
+router.beforeEach((to, from, next) => {
+  const publicPages = ["/login", "/register"];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem("accessToken");
+
+  if (authRequired && !loggedIn) {
+    return next("/login");
+  }
+
+  const role = getUserRole();
+  if (to.path.startsWith("/client") && role !== "client") {
+    return next("/login");
+  }
+  if (to.path.startsWith("/rest") && role !== "rest") {
+    return next("/login");
+  }
+  if (to.path.startsWith("/comm") && role !== "comm") {
+    return next("/login");
+  }
+  if (to.path.startsWith("/tech") && role !== "tech") {
+    return next("/login");
+  }
+  if (to.path.startsWith("/dev") && role !== "dev") {
+    return next("/login");
+  }
+  if (to.path.startsWith("/deliv") && role !== "deliv") {
+    return next("/login");
+  }
+
+  next();
+});
+
 export default router;
