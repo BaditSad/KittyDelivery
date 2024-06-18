@@ -7,7 +7,7 @@ export default {
       pending: [],
       currentPage: 1,
       currentPendingPage: 1,
-      itemsPerPage: 1,
+      itemsPerPage: 10,
       totalPages: 0,
       totalPendingPages: 0
     };

@@ -13,13 +13,14 @@
     <h1>Liste des composants disponibles :</h1>
     <div class="container">
       <div class="component-list">
-        <div
-          class="component"
-          v-for="(component, index) in components"
-          :key="index"
-        >
+        <div class="component" v-for="(component, index) in components" :key="index">
           <p>{{ component.component_name }}</p>
           <button @click="downloadComponent(component)">Télécharger</button>
+        </div>
+        <div class="pagination">
+          <button class="prevpage" @click="prevPage" :disabled="currentPage === 1">Précédent</button>
+          <span>Page {{ currentPage }} de {{ totalPages }}</span>
+          <button class="nextpage" @click="nextPage" :disabled="currentPage === totalPages">Suivant</button>
         </div>
       </div>
     </div>

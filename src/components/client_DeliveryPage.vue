@@ -20,9 +20,9 @@
           <p>{{ order.delivery_status }}</p>
         </div>
         <div class="pagination">
-          <button @click="prevPendingPage" :disabled="currentPendingPage === 1">Précédent</button>
+          <button class="prevpending" @click="prevPendingPage" :disabled="currentPendingPage === 1">Précédent</button>
           <span>Page {{ currentPendingPage }} de {{ totalPendingPages }}</span>
-          <button @click="nextPendingPage" :disabled="currentPendingPage === totalPendingPages">Suivant</button>
+          <button class="nextpending" @click="nextPendingPage" :disabled="currentPendingPage === totalPendingPages">Suivant</button>
         </div>
       </div>
       <div v-else>
@@ -39,9 +39,9 @@
           </p>
         </div>
         <div class="pagination">
-          <button @click="prevPage" :disabled="currentPage === 1">Précédent</button>
+          <button class="prevorder" @click="prevPage" :disabled="currentPage === 1">Précédent</button>
           <span>Page {{ currentPage }} de {{ totalPages }}</span>
-          <button @click="nextPage" :disabled="currentPage === totalPages">Suivant</button>
+          <button class= "nextorder" @click="nextPage" :disabled="currentPage === totalPages">Suivant</button>
         </div>
       </div>
       <div v-else>
