@@ -5,7 +5,7 @@
   <header>
     <img class="logo" src="../assets/logo.jpg" alt="Kitty Delivery logo" />
     <img class="title" src="../assets/title.png" alt="Kitty Delivery title" />
-    <router-link to="/profile">
+    <router-link to="/dev/profile">
       <button class="profile_button">Profile</button>
     </router-link>
   </header>
@@ -17,12 +17,12 @@
           <p>{{ component.component_name }}</p>
           <button @click="downloadComponent(component)">Télécharger</button>
         </div>
-        <div class="pagination">
-          <button class="prevpage" @click="prevPage" :disabled="currentPage === 1">Précédent</button>
-          <span>Page {{ currentPage }} de {{ totalPages }}</span>
-          <button class="nextpage" @click="nextPage" :disabled="currentPage === totalPages">Suivant</button>
-        </div>
       </div>
     </div>
+        <div class="pagination">
+          <button class="pag-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
+          <span class="text-pag"> {{ currentPage }} / {{ totalPages }} </span>
+          <button class="pag-btn" @click="nextPage" :disabled="currentPage === totalPages">&gt;</button>
+        </div>
   </div>
 </template>

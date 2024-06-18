@@ -57,7 +57,7 @@
           </router-link>
         </div>
         <div class="delivery-status">
-          <h3>Suivi de livraisons</h3>
+          <h3>Suivis de livraisons</h3>
           <p class="delivery">Pas de livraison en cours</p>
           <div class="progress-bar">
             <div class="progress"></div>
