@@ -55,10 +55,10 @@
       <div class="sidebar">
         <div class="button-container">
           <router-link to="/rest/stats">
-            <button>Mes statistiques</button>
+            <button class="add-button">Mes statistiques</button>
           </router-link>
           <router-link to="/rest/tracking">
-            <button>Mes commandes</button>
+            <button class="add-button">Mes commandes</button>
           </router-link>
         </div>
         <div class="delivery-status">
@@ -81,8 +81,6 @@
         </div>
       </div>
     </div>
-
-    <!-- popup edit menu -->
     <div v-if="selectedItem" class="edit-form">
       <h2>Modifier le menu</h2>
       <form @submit.prevent="updateMenu">
@@ -128,13 +126,13 @@
     <div v-if="isAddingMenu" class="add-form">
       <h2>Ajouter un nouveau menu</h2>
       <form @submit.prevent="addMenu">
-        <input
+        <input class="popup-input"
           type="text"
           v-model="newMenu.menu_name"
           placeholder="Nom du menu"
           required
         />
-        <textarea
+        <textarea class="textarea"
           v-model="newMenu.menu_description"
           placeholder="Description"
           required
@@ -143,26 +141,28 @@
           v-for="(article, articleIndex) in newMenu.article_list"
           :key="articleIndex"
         >
-          <input
+          <input class="popup-input"
             type="text"
             v-model="newMenu.article_list[articleIndex]"
             :placeholder="'Article ' + (articleIndex + 1)"
             required
           />
-          <button type="button" @click="removeNewArticle(articleIndex)">
+          <button class="button-delete" type="button" @click="removeNewArticle(articleIndex)">
             Supprimer
           </button>
         </div>
-        <button type="button" @click="addNewArticle">Ajouter un article</button>
-        <input
+        <button class="button-update" type="button" @click="addNewArticle">Ajouter un article</button>
+        <input class="popup-input"
           type="number"
           v-model="newMenu.menu_price"
           placeholder="Prix"
           required
         />
-        <input type="file" @change="handleFileUpload" /> <!-- Champ de téléchargement pour ajouter une image au nouveau menu -->
-        <button type="submit">Ajouter</button>
-        <button type="button" @click="cancelAddMenu">Annuler</button>
+        <input class="add-file" type="file" @change="handleFileUpload" />
+        <div class="button-add-menu">
+          <button class="button-update" type="submit">Ajouter</button>
+          <button class="button-delete" type="button" @click="cancelAddMenu">Annuler</button>
+        </div>
       </form>
     </div>
   </div>

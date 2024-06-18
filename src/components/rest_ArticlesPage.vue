@@ -5,7 +5,7 @@
   <header>
     <img class="title" src="../assets/title.png" alt="Kitty Delivery title" />
     <router-link to="/rest/home">
-      <button class="profile_button">Back</button>
+      <button class="profile_button">Retour</button>
     </router-link>
   </header>
   <div class="container">
@@ -72,32 +72,34 @@
     <div v-if="isAddingArticle" class="add-form">
       <h2>Ajouter un nouvel article</h2>
       <form @submit.prevent="addItem">
-        <input
+        <input class="popup-input"
           type="text"
           v-model="newArticle.article_name"
           placeholder="Nom de l'article"
           required
         />
-        <input
+        <input class="popup-input"
           type="text"
           v-model="newArticle.article_type"
           placeholder="Type de l'article"
           required
         />
-        <textarea
+        <textarea class="textarea"
           v-model="newArticle.description"
           placeholder="Description"
           required
         ></textarea>
-        <input
+        <input class="popup-input"
           type="number"
           v-model="newArticle.price"
           placeholder="Prix"
           required
         />
-        <input type="file" @change="handleFileUpload" />
-        <button type="submit">Ajouter</button>
-        <button type="button" @click="cancelAddArticle">Annuler</button>
+        <input class="add-file" type="file" @change="handleFileUpload" />
+        <div class="button-add-menu">
+        <button class="button-update" type="submit">Ajouter</button>
+        <button class="button-delete" type="button" @click="cancelAddArticle">Annuler</button>
+        </div>
       </form>
     </div>
   </div>

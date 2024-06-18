@@ -271,11 +271,11 @@ input[type="email"] {
   text-transform: uppercase;
   transition: filter 0.2s;
   user-select: none;
-  width: 40%;
+  width: 100%;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
-  padding: 5px;
+  padding: 10px;
 }
 
 .button-update:after {
@@ -315,10 +315,11 @@ input[type="email"] {
   text-transform: uppercase;
   transition: filter 0.2s;
   user-select: none;
-  width: 40%;
+  width: 100%;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
+  padding: 10px;
 }
 
 .button-delete:after {
@@ -362,6 +363,56 @@ input.text:focus {
   outline: none;
   border: 2px solid #DDA476;
   box-shadow: 0 0 5px rgba(221, 164, 118, 0.5);
+}
+
+.add-form {
+  margin-top: 1%;
+  background-color: #DDA476;
+  border: dashed #F9E4C4;
+  border-radius: 15px;
+  padding: 0px 30px 0px 30px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  color: #FFFFFF;
+}
+
+.popup-input {
+  border: 2px solid #cecece;
+  padding: 16px;
+  background-color: white;
+  margin-bottom: 3%;
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 5px white, inset -5px -5px 10px white;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  font-size: 16px;
+}
+
+.add-file {
+  margin-bottom: 10px;
+}
+
+.button-add-menu {
+  margin-top: 10px;
+  justify-content: space-between;
+  display: flex;
+  gap: 10px;
+}
+
+.textarea {
+  border: 2px solid #cecece;
+  padding: 16px;
+  background-color: white;
+  margin-bottom: 3%;
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 5px white, inset -5px -5px 10px white;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  font-size: 16px;
 }
 
 @media (max-width: 1024px) {

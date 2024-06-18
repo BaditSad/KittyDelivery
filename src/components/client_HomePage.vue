@@ -16,20 +16,23 @@
           <h1>Restaurant à proximité &#127828;</h1>
           <div class="card-rests">
             <router-link to="/client/selectmeal">
-              <div class="card-rest"> Restaurant </div>
+              <div class="card-rest">Restaurant</div>
             </router-link>
           </div>
         </div>
-        <div class="sidebar">
-          <router-link to="/client/delivery">
-            <button class="commands">Mes commandes</button>
-          </router-link>
-          <div class="referral">
-            <h3>Parrainage</h3>
-            <label>
-              <input class="text" type="email" placeholder="Adresse mail à parrainer" />
-            </label>
-            <button>Parrainer</button>
+        <div class="notif-container">
+          <div class="notif">&#128242; notif exemple</div>
+          <div class="sidebar">
+            <router-link to="/client/delivery">
+              <button class="commands">Mes commandes</button>
+            </router-link>
+            <div class="referral">
+              <h3>Parrainage</h3>
+              <label>
+                <input class="text" type="email" placeholder="Adresse mail à parrainer" />
+              </label>
+              <button>Parrainer</button>
+            </div>
           </div>
         </div>
       </div>
