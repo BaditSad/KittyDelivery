@@ -14,29 +14,19 @@
       <div class="menu-card">
         <h1>Mes articles &#127828;</h1>
         <div class="card-items">
-          <div
-            class="card-item"
-            v-for="(item, index) in menuItems"
-            :key="index"
-          >
-            {{ console.log('Menu Item:', item, index) }} 
+          <div class="card-item" v-for="(item, index) in menuItems" :key="index">
+            {{ console.log('Menu Item:', item, index) }}
             <img :src="'http://localhost:3008' + item.Menu_image" class="Menu_image" alt="menu image" />
             <p class="item">{{ item.menu_name }}</p>
             <p class="item">{{ item.menu_description }}</p>
             <p class="item">Prix : {{ item.menu_price }} €</p>
             <ul>
-              <li
-                v-for="(article, articleIndex) in item.article_list"
-                :key="articleIndex"
-              >
+              <li v-for="(article, articleIndex) in item.article_list" :key="articleIndex">
                 {{ article }}
               </li>
             </ul>
             <div class="buttons">
-              <button
-                class="button-update"
-                @click="selectMenuForEdit(item, index)"
-              >
+              <button class="button-update" @click="selectMenuForEdit(item, index)">
                 Modifier
               </button>
               <button class="button-delete" @click="deleteMenu(item)">
@@ -51,6 +41,11 @@
         <router-link to="/rest/articles">
           <button class="add-button">Ajouter des articles</button>
         </router-link>
+        <div class="pagination">
+          <button class="prevpage" @click="prevPage" :disabled="currentPage === 1">Précédent</button>
+          <span>Page {{ currentPage }} de {{ totalPages }}</span>
+          <button class="nextpage" @click="nextPage" :disabled="currentPage === totalPages">Suivant</button>
+        </div>
       </div>
       <div class="sidebar">
         <div class="button-container">
@@ -71,11 +66,7 @@
         <div class="referral">
           <h3>Parrainage</h3>
           <label>
-            <input
-              class="text"
-              type="email"
-              placeholder="Adresse mail à parrainer"
-            />
+            <input class="text" type="email" placeholder="Adresse mail à parrainer" />
           </label>
           <button>Parrainer</button>
         </div>
@@ -84,39 +75,19 @@
     <div v-if="selectedItem" class="edit-form">
       <h2>Modifier le menu</h2>
       <form @submit.prevent="updateMenu">
-        <input
-          type="text"
-          v-model="editItem.menu_name"
-          placeholder="Nom du menu"
-          required
-        />
-        <textarea
-          v-model="editItem.menu_description"
-          placeholder="Description"
-          required
-        ></textarea>
-        <div
-          v-for="(article, articleIndex) in editItem.article_list"
-          :key="articleIndex"
-        >
-          <input
-            type="text"
-            v-model="editItem.article_list[articleIndex]"
-            :placeholder="'Article ' + (articleIndex + 1)"
-            required
-          />
+        <input type="text" v-model="editItem.menu_name" placeholder="Nom du menu" required />
+        <textarea v-model="editItem.menu_description" placeholder="Description" required></textarea>
+        <div v-for="(article, articleIndex) in editItem.article_list" :key="articleIndex">
+          <input type="text" v-model="editItem.article_list[articleIndex]"
+            :placeholder="'Article ' + (articleIndex + 1)" required />
           <button type="button" @click="removeArticle(articleIndex)">
             Supprimer
           </button>
         </div>
         <button type="button" @click="addArticle">Ajouter un article</button>
-        <input
-          type="number"
-          v-model="editItem.menu_price"
-          placeholder="Prix"
-          required
-        />
-        <input type="file" @change="handleFileUploadEdit" /> <!-- Champ de téléchargement pour modifier l'image du menu -->
+        <input type="number" v-model="editItem.menu_price" placeholder="Prix" required />
+        <input type="file" @change="handleFileUploadEdit" />
+        <!-- Champ de téléchargement pour modifier l'image du menu -->
         <button type="submit">Enregistrer</button>
         <button type="button" @click="cancelEditMenu">Annuler</button>
       </form>
@@ -126,38 +97,17 @@
     <div v-if="isAddingMenu" class="add-form">
       <h2>Ajouter un nouveau menu</h2>
       <form @submit.prevent="addMenu">
-        <input class="popup-input"
-          type="text"
-          v-model="newMenu.menu_name"
-          placeholder="Nom du menu"
-          required
-        />
-        <textarea class="textarea"
-          v-model="newMenu.menu_description"
-          placeholder="Description"
-          required
-        ></textarea>
-        <div
-          v-for="(article, articleIndex) in newMenu.article_list"
-          :key="articleIndex"
-        >
-          <input class="popup-input"
-            type="text"
-            v-model="newMenu.article_list[articleIndex]"
-            :placeholder="'Article ' + (articleIndex + 1)"
-            required
-          />
+        <input class="popup-input" type="text" v-model="newMenu.menu_name" placeholder="Nom du menu" required />
+        <textarea class="textarea" v-model="newMenu.menu_description" placeholder="Description" required></textarea>
+        <div v-for="(article, articleIndex) in newMenu.article_list" :key="articleIndex">
+          <input class="popup-input" type="text" v-model="newMenu.article_list[articleIndex]"
+            :placeholder="'Article ' + (articleIndex + 1)" required />
           <button class="button-delete" type="button" @click="removeNewArticle(articleIndex)">
             Supprimer
           </button>
         </div>
         <button class="button-update" type="button" @click="addNewArticle">Ajouter un article</button>
-        <input class="popup-input"
-          type="number"
-          v-model="newMenu.menu_price"
-          placeholder="Prix"
-          required
-        />
+        <input class="popup-input" type="number" v-model="newMenu.menu_price" placeholder="Prix" required />
         <input class="add-file" type="file" @change="handleFileUpload" />
         <div class="button-add-menu">
           <button class="button-update" type="submit">Ajouter</button>

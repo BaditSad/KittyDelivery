@@ -1,9 +1,9 @@
 import apiGateway from "../../axios.config";
 
-export const getMenus = async (restaurantId) => {
+export const getMenus = async (restaurantId, page, limit) => {
   restaurantId = 1;
   try {
-    const response = await apiGateway.get(`/mc_menu/${restaurantId}`);
+    const response = await apiGateway.get(`/mc_menu/${restaurantId}`, {params: { page, limit }});
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la récupération de menu:", error);
