@@ -19,6 +19,11 @@
           <p>{{ order.order_status }}</p>
           <p>{{ order.delivery_status }}</p>
         </div>
+        <div class="pagination">
+          <button @click="prevPendingPage" :disabled="currentPendingPage === 1">Précédent</button>
+          <span>Page {{ currentPendingPage }} de {{ totalPendingPages }}</span>
+          <button @click="nextPendingPage" :disabled="currentPendingPage === totalPendingPages">Suivant</button>
+        </div>
       </div>
       <div v-else>
         <p>No pending orders.</p>
@@ -27,11 +32,16 @@
     <section>
       <h2>Historiques des commandes</h2>
       <div v-if="orders.length">
-        <div v-for="order in orders" :key="order._id">
+        <div v-for="order in paginatedOrders" :key="order._id">
           <p>
             Livré le {{ new Date(order.order_date).toLocaleString() }} -
             {{ order.restaurant_name }} - {{ order.order_total_amount }}
           </p>
+        </div>
+        <div class="pagination">
+          <button @click="prevPage" :disabled="currentPage === 1">Précédent</button>
+          <span>Page {{ currentPage }} de {{ totalPages }}</span>
+          <button @click="nextPage" :disabled="currentPage === totalPages">Suivant</button>
         </div>
       </div>
       <div v-else>
