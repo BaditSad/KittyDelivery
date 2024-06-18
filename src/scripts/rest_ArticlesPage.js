@@ -20,16 +20,41 @@ export default {
         article_image: null,
       },
       isAddingArticle: false,
+      currentPage: 1,
+      itemsPerPage: 5,
+      totalPages: 0
     };
   },
   async mounted() {
     try {
       this.articlesItems = await getArticles();
+      await this.fetchArticles();
     } catch (error) {
       console.error("Erreur lors de la récupération des articles:", error);
     }
   },
   methods: {
+    async fetchArticles() {
+      try {
+        const data = await getArticles(this.currentPage, this.limit);
+        this.articlesItems = data.articles;
+        this.totalPages = Math.ceil(data.total / this.limit);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des articles:", error);
+      }
+    },
+    async prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+        await this.fetchArticles();
+      }
+    },
+    async nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+        await this.fetchArticles();
+      }
+    },  
     async deleteItem(item) {
       if (
         confirm(
@@ -106,8 +131,7 @@ export default {
       } catch (error) {
         console.error("Erreur lors de la modification de l'article:", error);
       }
-    },
-    
+    }, 
    
     cancelEdit() {
       this.selectedItem = null;
