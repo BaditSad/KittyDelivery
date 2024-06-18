@@ -32,7 +32,7 @@
     <section>
       <h2>Historiques des commandes</h2>
       <div v-if="orders.length">
-        <div v-for="order in paginatedOrders" :key="order._id">
+        <div v-for="order in orders" :key="order._id">
           <p>
             Livré le {{ new Date(order.order_date).toLocaleString() }} -
             {{ order.restaurant_name }} - {{ order.order_total_amount }}

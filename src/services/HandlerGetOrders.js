@@ -22,9 +22,9 @@ export const getRestaurantOrders = async (restaurantId) => {
   }
 };
 
-export const getUserOrders = async (userId, page) => {
+export const getUserOrders = async (userId, page, limit) => {
   try {
-    const response = await apiGateway.get(`/mc_order/user/${userId}`, {params: { page }});
+    const response = await apiGateway.get(`/mc_order/user/${userId}`, {params: { page, limit }});
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la récupération de order:", error);
@@ -32,9 +32,9 @@ export const getUserOrders = async (userId, page) => {
   }
 };
 
-export const getUserPendingOrders = async (userId, page) => {
+export const getUserPendingOrders = async (userId, page, limit) => {
   try {
-    const response = await apiGateway.get(`/mc_order/user/pending/${userId}`, {params: { page }});
+    const response = await apiGateway.get(`/mc_order/user/pending/${userId}`, {params: { page, limit }});
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la récupération de order:", error);
