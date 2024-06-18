@@ -1,0 +1,200 @@
+button,
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 24px;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    color: black;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+header {
+    width: 95%;
+    text-align: center;
+    color: white;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1%;
+    margin: auto;
+    position: relative;
+  }
+  
+  .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    width: 20%;
+  }
+  
+  .back {
+    border: dashed #F9E4C4;
+    padding: 16px;
+    background-color: #DDA476;
+    border-radius: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 20px;
+    outline: none;
+    text-align: center;
+    text-transform: uppercase;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .back:hover {
+    background-color: #F9E4C4;
+    border: dashed #DDA476;
+    color: #DDA476;
+  }
+  
+  /* Container and main layout styles */
+  .container {
+    width: 80%;
+    padding: 15px;
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .main {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .list-user, .sidebar {
+    background: #DDA476;
+    border-radius: 30px;
+    border: dashed #F9E4C4;
+    padding: 15px;
+  }
+  
+  .list-user {
+    flex: 2;
+    margin-right: 20px;
+  }
+  
+  .sidebar {
+    flex: 1;
+  }
+  
+  /* Flexbox for input and tableau */
+  .input-tableau-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  input {
+    border: 0;
+    outline: 0;
+    padding: 16px;
+    background-color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 5px white, inset -5px -5px 10px white;
+    width: auto;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    margin-bottom: 0;
+  }
+  
+  input:focus {
+    box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px white;
+  }
+  
+  .tableau {
+    margin-left: 20px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 18px;
+  }
+  
+  /* Specific styles for buttons */
+  button {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 24px;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 1%;
+  }
+  
+  .all-button {
+    margin-top: 2%;
+  }
+  
+  .update-button, .stop-button, .delete-button {
+    appearance: button;
+    margin-right: 10px;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 20px;
+    outline: none;
+    text-align: center;
+    text-transform: uppercase;
+    transition: filter 0.2s;
+    user-select: none;
+    width: auto;
+    padding: 16px;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .update-button:hover, .stop-button:hover, .delete-button:hover {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+  }
+  
+  .delivery-stat {
+    margin-bottom: 20px;
+  }
+  
+  .stat {
+    font-size: 16px;
+  }
