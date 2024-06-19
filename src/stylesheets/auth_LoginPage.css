@@ -49,16 +49,13 @@ body, p, input, select, textarea, button, h1 {
   .error-message {
     color: red;
     margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
   }
   .error-list {
     color: red;
-    margin-top: 10px;
     list-style-type: none;
     padding: 0;
-  }
-  
-  .error-item {
-    margin-bottom: 5px;
   }
   
   .form {
