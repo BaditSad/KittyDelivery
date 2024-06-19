@@ -11,6 +11,41 @@ h1 {
   margin-bottom: 1%;
 }
 
+.pag-btn {
+  border: 2px solid #D35452;
+  padding: 10px 20px;
+  background-color: #EE9180;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #D35452;
+  font-weight: bold;
+  margin: 0px 20px 20px 20px;
+}
+
+.pag-btn:hover {
+  border: 2px solid #EE9180;
+  background-color: #D35452;
+  color: #EE9180;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+span {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+
 section {
   width: 90%;
   max-width: 600px;

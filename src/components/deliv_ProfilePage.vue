@@ -86,6 +86,11 @@
         <p>Prix de la course : {{ order.order_total_amount }}</p>
       </li>
     </ul>
+    <div v-if="totalPages > 0" class="pagination">
+      <button class="pag-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
+      <span class="text-pag"> {{ currentPage }} / {{ totalPages }} </span>
+      <button class="pag-btn" @click="nextPage" :disabled="currentPage === totalPages">&gt;</button>
+    </div>
   </section>
 </div>
 

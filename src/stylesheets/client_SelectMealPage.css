@@ -10,6 +10,27 @@ button {
   margin-bottom: 1%;
 }
 
+.articles {
+  background-color: #FFFFFF;
+  border: solid #F9E4C4;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h4 {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 14px;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 14px;
+}
+
 h2 {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: -0.2px;
@@ -142,7 +163,7 @@ header {
   margin: 0;
 }
 
-button {
+.button-add {
   width: 100%;
   padding: 1rem;
   background-color: #1899D6;
@@ -153,17 +174,17 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.button-add:hover {
   background-color: #1CB0F6;
 }
 
-.sidebar button {
+.sidebar .button-add {
   margin-bottom: 1rem;
-  background-color: #1899D6;
+  background-color: #189ad600;
 }
 
-.sidebar button:hover {
-    background-color: #1CB0F6;
+.sidebar .button-add:hover {
+    background-color: #1cb1f600;
   }
 
 .referral input {
@@ -172,4 +193,48 @@ button:hover {
   margin-bottom: 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
+}
+
+.button-delete {
+  appearance: button;
+  background-color: #D35452;
+  border: solid transparent;
+  border-radius: 16px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  transition: filter 0.2s;
+  user-select: none;
+  width: 100%;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  padding: 10px;
+}
+
+.button-delete:after {
+  background-clip: padding-box;
+  background-color: #dd6f6d;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  z-index: -1;
+}
+
+.button-delete:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
 }
