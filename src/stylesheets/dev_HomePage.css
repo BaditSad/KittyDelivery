@@ -111,6 +111,7 @@ span {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .component button {
@@ -122,6 +123,7 @@ span {
   cursor: pointer;
   color: #D35452;
   font-weight: bold;
+  margin-top: 15px;
 }
 
 .component button:hover {
