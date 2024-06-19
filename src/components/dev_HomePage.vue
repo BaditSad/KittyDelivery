@@ -13,16 +13,16 @@
     <h1>Liste des composants disponibles :</h1>
     <div class="container">
       <div class="component-list">
-        <div class="component" v-for="(component, index) in components" :key="index">
+        <div class="component" v-for="(component, index) in paginatedComponents" :key="index">
           <p>{{ component.component_name }}</p>
           <button @click="downloadComponent(component)">Télécharger</button>
         </div>
       </div>
     </div>
-        <div class="pagination">
-          <button class="pag-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
-          <span class="text-pag"> {{ currentPage }} / {{ totalPages }} </span>
-          <button class="pag-btn" @click="nextPage" :disabled="currentPage === totalPages">&gt;</button>
-        </div>
+    <div v-if="totalPages > 0" class="pagination">
+      <button class="pag-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
+      <span class="text-pag"> {{ currentPage }} / {{ totalPages }} </span>
+      <button class="pag-btn" @click="nextPage" :disabled="currentPage === totalPages">&gt;</button>
+    </div>
   </div>
 </template>

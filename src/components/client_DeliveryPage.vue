@@ -19,7 +19,7 @@
           <p>{{ order.order_status }}</p>
           <p>{{ order.delivery_status }}</p>
         </div>
-        <div class="pagination">
+        <div v-if="totalPendingPages > 0" class="pagination">
           <button class="prevpending" @click="prevPendingPage" :disabled="currentPendingPage === 1">Précédent</button>
           <span>Page {{ currentPendingPage }} de {{ totalPendingPages }}</span>
           <button class="nextpending" @click="nextPendingPage" :disabled="currentPendingPage === totalPendingPages">Suivant</button>
@@ -38,10 +38,10 @@
             {{ order.restaurant_name }} - {{ order.order_total_amount }}
           </p>
         </div>
-        <div class="pagination">
+        <div v-if="totalPages > 0" class="pagination">
           <button class="prevorder" @click="prevPage" :disabled="currentPage === 1">Précédent</button>
           <span>Page {{ currentPage }} de {{ totalPages }}</span>
-          <button class= "nextorder" @click="nextPage" :disabled="currentPage === totalPages">Suivant</button>
+          <button class="nextorder" @click="nextPage" :disabled="currentPage === totalPages">Suivant</button>
         </div>
       </div>
       <div v-else>
