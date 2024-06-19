@@ -60,6 +60,22 @@ body, p, input, select, textarea, button, h1 {
     flex-direction: column;
     align-items: center;
   }
+
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .error-list {
+    color: red;
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .error-item {
+    margin-bottom: 5px;
+  }
   
   .button-login {
     appearance: button;

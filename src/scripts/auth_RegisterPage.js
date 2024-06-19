@@ -9,6 +9,9 @@ export default {
       phone: "",
       password: "",
       passwordConfirm: "",
+      role: "",
+      errorMessage: "",
+      errors: [],
       role: "client",
       name: "", // restaurant_name
       description: "", // restaurant_description
@@ -18,6 +21,13 @@ export default {
   },
   methods: {
     async register() {
+      this.errorMessage = "";
+      this.errors = [];
+      if (!this.email || !this.username || !this.address || !this.phone || !this.password || !this.passwordConfirm ||  !this.role) {
+        this.errorMessage = "Tous les champs sont requis.";
+        return;
+      }
+
       if (this.password !== this.passwordConfirm) {
         alert("Les mots de passe ne correspondent pas !");
         return;
@@ -40,9 +50,12 @@ export default {
           this.$router.push("/");
         }
       } catch (error) {
-        alert(
-          error.response.data.message || "Erreur lors de la création du compte."
-        );
+        if (error.response && error.response.status === 400 && error.response.data.errors) {
+          this.errors = error.response.data.errors;
+        } else {
+          this.errorMessage =
+            error.response?.data?.message || "Erreur lors de la création du compte.";
+        }
       }
     },
   },

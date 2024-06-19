@@ -82,6 +82,12 @@
               Restaurateur
             </label>
           </div>
+<<<<<<< HEAD
+          <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+          <ul v-if="errors.length" class="error-list">
+          <li v-for="error in errors" :key="error.msg" class="error-item">{{ error.msg }}</li>
+        </ul>
+=======
             <label class="text" v-if="role === 'restaurateur'">
             <input
               v-model="name"
@@ -114,6 +120,7 @@
               placeholder="Adresse du restaurant"
             />
           </label>
+>>>>>>> 9a703386c8cf43e0879ee41c447f5fec27543ffd
           <button class="button-login" type="submit">
             <i class="icon ion-md-lock"></i> S'inscrire
           </button>

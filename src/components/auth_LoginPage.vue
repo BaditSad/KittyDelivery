@@ -25,10 +25,15 @@
             placeholder="Mot de passe"
           />
         </label>
+        <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <ul v-if="errors.length" class="error-list">
+          <li v-for="error in errors" :key="error.msg" class="error-item">{{ error.msg }}</li>
+        </ul>
         <button class="button-login" type="button" @click="login">
           <i class="icon ion-md-lock"></i> Connexion
         </button>
       </form>
+
       <div class="signup-container">
         <router-link to="/register">
           <p class="signup">S'inscrire</p>
