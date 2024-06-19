@@ -10,11 +10,19 @@ export const getAllOrders = async () => {
   }
 };
 
-export const getRestaurantOrders = async (restaurantId) => {
+export const getRestaurantOrders = async (restaurantId, page, limit) => {
   try {
-    const response = await apiGateway.get(
-      `/mc_order/restaurant/${restaurantId}`
-    );
+    const response = await apiGateway.get(`/mc_order/restaurant/${restaurantId}`, { params: { page, limit }});
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des commandes:", error);
+    throw error;
+  }
+};
+
+export const getUserOrders = async (userId, page, limit) => {
+  try {
+    const response = await apiGateway.get(`/mc_order/user/${userId}`, {params: { page, limit }});
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la récupération de order:", error);
@@ -22,19 +30,9 @@ export const getRestaurantOrders = async (restaurantId) => {
   }
 };
 
-export const getUserOrders = async (userId) => {
+export const getUserPendingOrders = async (userId, page, limit) => {
   try {
-    const response = await apiGateway.get(`/mc_order/user/${userId}`);
-    return response.data;
-  } catch (error) {
-    console.error("Erreur lors de la récupération de order:", error);
-    throw error;
-  }
-};
-
-export const getUserPendingOrders = async (userId) => {
-  try {
-    const response = await apiGateway.get(`/mc_order/user/pending/${userId}`);
+    const response = await apiGateway.get(`/mc_order/user/pending/${userId}`, {params: { page, limit }});
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la récupération de order:", error);
