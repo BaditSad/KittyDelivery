@@ -31,6 +31,7 @@ export default {
 
         const logData = {
           log_date: new Date(),
+          log_type: "download",
           log_message: `Component ${component.component_name} downloaded`,
         };
 
