@@ -55,7 +55,10 @@
         </ul>
       </div>
     </div>
+    <div v-if="totalPages > 0" class="pagination">
+      <button class="prevpage" @click="prevPage" :disabled="currentPage === 1">Précédent</button>
+      <span>Page {{ currentPage }} de {{ totalPages }}</span>
+      <button class="nextpage" @click="nextPage" :disabled="currentPage === totalPages">Suivant</button>
+    </div>
   </div>
 </template>
-
-

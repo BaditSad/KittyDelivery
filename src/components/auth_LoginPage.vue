@@ -8,7 +8,7 @@
   <div class="container">
     <main>
       <form class="form">
-        <h1>Connexion avec votre compte Kitty ! &#9995;</h1>
+        <h1>Connexion à votre compte Kitty ! &#9995;</h1>
         <label class="text">
           <input
             v-model="email"

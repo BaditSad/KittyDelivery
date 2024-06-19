@@ -9,9 +9,17 @@ export default {
       phone: "",
       password: "",
       passwordConfirm: "",
+<<<<<<< HEAD
       role: "",
       errorMessage: "",
       errors: [],
+=======
+      role: "client",
+      name: "", // restaurant_name
+      description: "", // restaurant_description
+      rest_phone: "", // restaurant_telephone
+      rest_address: "", // restaurant_address
+>>>>>>> 9a703386c8cf43e0879ee41c447f5fec27543ffd
     };
   },
   methods: {
@@ -34,10 +42,14 @@ export default {
           this.address,
           this.phone,
           this.password,
-          this.role
+          this.role,
+          this.name,
+          this.rest_address,
+          this.description,
+          this.rest_phone
         );
         if (response.status === 201) {
-          alert(response.data.msg);
+          alert(response.data.message);
           this.$router.push("/");
         }
       } catch (error) {

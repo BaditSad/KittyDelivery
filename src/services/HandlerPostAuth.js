@@ -23,7 +23,11 @@ export const postUserRegister = async (
   address,
   phone,
   password,
-  role
+  role,
+  restaurant_name,
+  restaurant_address,
+  restaurant_description,
+  restaurant_telephone
 ) => {
   try {
     const response = await apiGateway.post("/mc_auth/register", {
@@ -33,6 +37,10 @@ export const postUserRegister = async (
       phone: phone,
       password: password,
       role: role,
+      restaurant_name: restaurant_name,
+      restaurant_address: restaurant_address,
+      restaurant_description: restaurant_description,
+      restaurant_telephone: restaurant_telephone
     });
     return response.data;
   } catch (error) {
