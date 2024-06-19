@@ -12,7 +12,6 @@ export default {
       role: "",
       errorMessage: "",
       errors: [],
-      role: "client",
       name: "", // restaurant_name
       description: "", // restaurant_description
       rest_phone: "", // restaurant_telephone
