@@ -82,6 +82,10 @@
               Restaurateur
             </label>
           </div>
+          <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+          <ul v-if="errors.length" class="error-list">
+          <li v-for="error in errors" :key="error.msg" class="error-item">{{ error.msg }}</li>
+        </ul>
           <button class="button-login" type="submit">
             <i class="icon ion-md-lock"></i> S'inscrire
           </button>
