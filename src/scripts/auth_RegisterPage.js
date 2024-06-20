@@ -12,17 +12,17 @@ export default {
       role: "",
       errorMessage: "",
       errors: [],
-      name: "", // restaurant_name
-      description: "", // restaurant_description
-      rest_phone: "", // restaurant_telephone
-      rest_address: "", // restaurant_address
+      name: "",
+      description: "",
+      rest_phone: "",
+      rest_address: "",
     };
   },
   methods: {
     async register() {
       this.errorMessage = "";
       this.errors = [];
-      if (!this.email || !this.username || !this.address || !this.phone || !this.password || !this.passwordConfirm ||  !this.role) {
+      if (!this.email || !this.username || !this.address || !this.phone || !this.password || !this.passwordConfirm || !this.role) {
         this.errorMessage = "Tous les champs sont requis.";
         return;
       }
@@ -46,14 +46,13 @@ export default {
         );
         if (response.status === 201) {
           alert(response.data.message);
-          this.$router.push("/");
         }
+        this.$router.push("/login");
       } catch (error) {
         if (error.response && error.response.status === 400 && error.response.data.errors) {
           this.errors = error.response.data.errors;
         } else {
-          this.errorMessage =
-            error.response?.data?.message || "Erreur lors de la création du compte.";
+          this.errorMessage = error.response?.data?.message || "Erreur lors de la création du compte.";
         }
       }
     },

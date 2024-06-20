@@ -8,7 +8,7 @@ export default {
       email: "",
       password: "",
       errorMessage: "",
-      errors : []
+      errors: []
     };
   },
   methods: {
@@ -21,17 +21,27 @@ export default {
       }
       try {
         const response = await postUserLogin(this.email, this.password);
-        
-        if (response.data) {
+
+        if (response) {
           const logData = {
             log_date: new Date(),
             log_type: "connection",
-            log_message: `user ${localStorage.setItem("id")} connected`,
+            log_message: `user ${localStorage.getItem("id")} connected`,
           };
 
           postLogComponent(logData);
 
-          this.$router.push({ name: "Home" });
+          const userRole = localStorage.getItem("role");
+
+          if (userRole === "client") {
+            this.$router.push({ path: "/client" });
+          } else if (userRole === "rest") {
+            this.$router.push({ path: "/rest" });
+          } else if (userRole === "livreur") {
+            this.$router.push({ path: "/livreur" });
+          } else {
+            this.$router.push({ name: "Home" });
+          }
         }
       } catch (error) {
         if (error.response && error.response.status === 400 && error.response.data.errors) {

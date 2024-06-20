@@ -45,6 +45,7 @@ export default {
       if (Array.isArray(this.orders)) {
         this.orders.forEach((order) => {
           const orderDate = new Date(order.order_date).toDateString();
+          console.log(orderDate);
           if (this.dailyOrdersCount[orderDate]) {
             this.dailyOrdersCount[orderDate]++;
           } else {
