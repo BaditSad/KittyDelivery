@@ -54,11 +54,11 @@
           </li>
         </ul>
       </div>
-    </div>
-    <div v-if="totalPages > 0" class="pagination">
-      <button class="pag-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
-      <span class="text-pag"> {{ currentPage }} / {{ totalPages }} </span>
-      <button class="pag-btn" @click="nextPage" :disabled="currentPage === totalPages">&gt;</button>
+      <div v-if="totalPages > 0" class="pagination">
+        <button class="pag-btn" @click="prevPage" :disabled="currentPage === 1">&lt;</button>
+        <span class="text-pag"> {{ currentPage }} / {{ totalPages }} </span>
+        <button class="pag-btn" @click="nextPage" :disabled="currentPage === totalPages">&gt;</button>
+      </div>
     </div>
   </div>
 </template>

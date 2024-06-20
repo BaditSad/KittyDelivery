@@ -14,13 +14,8 @@
         <h1>Ma carte &#127839;</h1>
         <div class="card-items">
           <div class="card-item" v-for="(item, index) in articlesItems" :key="index">
-            <img
-              :src="'http://localhost:3000/api/mc_article' + item.article_image"
-              classe="article_image"
-              alt="article image"
-            />
-            <p class="item">{{ item.article_name }}</p>
-            <p class="item">{{ item.article_description }}</p>
+            <p class="item_title">{{ item.article_name }}</p>
+            <p class="item_description">{{ item.article_description }}</p>
             <p class="item">Prix : {{ item.article_price }} €</p>
             <div class="buttons">
               <button class="button-update" @click="selectItemForEdit(item, index)">
