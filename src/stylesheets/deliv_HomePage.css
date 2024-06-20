@@ -49,7 +49,6 @@ button {
 
 button:after {
   background-clip: padding-box;
-  background-color: #1CB0F6;
   border-radius: 16px;
   border-width: 0 0 4px;
   content: "";
@@ -110,7 +109,6 @@ input.text:focus {
   text-transform: uppercase;
   transition: filter 0.2s;
   user-select: none;
-  width: 40%;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
@@ -146,6 +144,17 @@ input.text:focus {
   background: none;
 }
 
+.li {
+  margin-right: 35px;
+}
+
+.deliv {
+  background-color: #ffffff;
+  border-radius: 15px;
+  border: solid #F9E4C4;
+  list-style-type: none;
+}
+
 .refuse {
   appearance: button;
   background-color: #D35452;
@@ -166,7 +175,6 @@ input.text:focus {
   text-transform: uppercase;
   transition: filter 0.2s;
   user-select: none;
-  width: 40%;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;

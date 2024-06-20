@@ -77,8 +77,8 @@
 
   <section>
     <h1>Livraisons effectuées :</h1>
-    <ul>
-      <li v-for="order in orders" :key="order._id">
+    <ul class="deliv">
+      <li class="li" v-for="order in orders" :key="order._id">
         <p>Livraison effectuée le {{ order.delivery_date }}</p>
         <p>Parcours de livraison</p>
         <p>Départ : {{ order.restaurant_address }}</p>

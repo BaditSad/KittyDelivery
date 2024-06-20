@@ -15,14 +15,12 @@ h2 {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: -0.2px;
     font-size: 20px;
-    color: #FFFFFF;
 }
 
 p {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: -0.2px;
     font-size: 16px;
-    color: #FFFFFF;
 }
 
 header {
@@ -85,3 +83,65 @@ section {
     flex-direction: column;
     align-items: center;
 }
+
+button {
+    padding: 1rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: filter 0.2s;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+.deliv {
+    padding: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style-type: none;
+}
+
+.li {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: solid #F9E4C4;
+    color: black;
+    padding-bottom: 10px;
+    padding: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+  button:after {
+    background-clip: padding-box;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    z-index: -1;
+  }
+
+  button:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }

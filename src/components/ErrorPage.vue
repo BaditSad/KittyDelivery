@@ -7,7 +7,8 @@
     <div class="container">
         <main>
             <div class="erreur">
-                Erreur, retourne sur la page login</div>
+                &#9940; Erreur, retour sur la page login :
+            </div>
             <div class="login-button">
                 <router-link to="/login">
                     <p class="login">Login</p>

@@ -12,8 +12,8 @@
 
     <section>
       <h1>Mes livraisons en cours :</h1>
-      <ul>
-        <li v-for="order in orders" :key="order._id">
+      <ul class="deliv">
+        <li class="li" v-for="order in orders" :key="order._id">
           <h2>Parcours de la livraison {{ order.qr_code }}</h2>
           <p>Départ : {{ order.restaurant_address }}</p>
           <p>Heure de départ : {{ order.order_date }}</p>

@@ -14,8 +14,8 @@
 
       <section>
         <h2>Livraisons disponibles :</h2>
-        <ul>
-          <li v-for="order in orders" :key="order._id">
+        <ul class="deliv">
+          <li class="li" v-for="order in orders" :key="order._id">
             <p>
               Livraison de {{ order.restaurant_address }} à
               {{ order.delivery_address }}
@@ -23,9 +23,9 @@
             <p>Commande : {{ order.order_items }}</p>
             <p>Prix de la livraison : {{ order.order_total_amount }}</p>
             <router-link to="/deliv/tracking">
-              <button class="accept" @click="acceptOrder(order._id)">Accept</button>
+              <button class="accept" @click="acceptOrder(order._id)">Accepter</button>
             </router-link>
-            <button class="refuse" @click="refuseOrder(order._id)">Refuse</button>
+            <button class="refuse" @click="refuseOrder(order._id)">Refuser</button>
           </li>
         </ul>
       </section>
