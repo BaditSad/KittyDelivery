@@ -109,13 +109,12 @@
         <button type="button" @click="addArticle">Ajouter un article</button>
         <input type="number" v-model="editItem.menu_price" placeholder="Prix" required />
         <input type="file" @change="handleFileUploadEdit" />
-        <!-- Champ de téléchargement pour modifier l'image du menu -->
+
         <button type="submit">Enregistrer</button>
         <button type="button" @click="cancelEditMenu">Annuler</button>
       </form>
     </div>
 
-    <!-- popup add menu -->
     <div v-if="isAddingMenu" class="add-form">
       <h2>Ajouter un nouveau menu</h2>
       <form @submit.prevent="addMenu">

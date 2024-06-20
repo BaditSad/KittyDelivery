@@ -10,23 +10,34 @@
         <button class="profile_button">Profile</button>
       </router-link>
     </header>
+    <div>
 
-    <section>
-      <h2>Livraisons disponibles :</h2>
-      <ul>
-        <li v-for="order in orders" :key="order._id">
-          <p>
-            Livraison de {{ order.restaurant_address }} à
-            {{ order.delivery_address }}
-          </p>
-          <p>Commande : {{ order.order_items }}</p>
-          <p>Prix de la livraison : {{ order.order_total_amount }}</p>
-          <router-link to="/deliv/tracking">
-            <button class="accept" @click="acceptOrder(order._id)">Accept</button>
-          </router-link>
-          <button class="refuse" @click="refuseOrder(order._id)">Refuse</button>
-        </li>
-      </ul>
-    </section>
+      <section>
+        <h2>Livraisons disponibles :</h2>
+        <ul>
+          <li v-for="order in orders" :key="order._id">
+            <p>
+              Livraison de {{ order.restaurant_address }} à
+              {{ order.delivery_address }}
+            </p>
+            <p>Commande : {{ order.order_items }}</p>
+            <p>Prix de la livraison : {{ order.order_total_amount }}</p>
+            <router-link to="/deliv/tracking">
+              <button class="accept" @click="acceptOrder(order._id)">Accept</button>
+            </router-link>
+            <button class="refuse" @click="refuseOrder(order._id)">Refuse</button>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <div class="referral">
+          <h3>Parrainage</h3>
+          <label>
+            <input class="text" type="email" placeholder="Adresse mail à parrainer" />
+          </label>
+          <button>Parrainer</button>
+        </div>
+      </section>
+    </div>
   </div>
 </template>
