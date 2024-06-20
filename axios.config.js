@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://localhost:3000/api";
 const TOKEN_ACCESS_KEY = "accessToken";
 
 const apiGateway = axios.create({
