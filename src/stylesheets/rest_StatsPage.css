@@ -16,6 +16,13 @@ h2 {
   font-size: 18px;
 }
 
+ul {
+  font-size: 15px;
+  font-weight: lighter;
+  list-style-type: none;
+  padding-right: 10%;
+}
+
 .container {
     padding: 2rem;
     padding-bottom: 10px;
@@ -74,6 +81,13 @@ h2 {
     padding-left: 50px;
     padding-right: 50px;
     width: 100%;
+}
+
+.li {
+  border: solid #DDA476;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  background-color: #F9E4C4;
 }
 
 header {

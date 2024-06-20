@@ -29,7 +29,7 @@ export default {
         const id = 1;
         this.loading = true;
         const response = await getRestaurantOrders(id, this.currentPage, this.itemsPerPage);
-        this.orders = response.orders || [];
+        this.orders = response.restaurants || [];
         this.totalPages = response.totalPages || 1;
         this.calculateDailyOrders();
         this.calculateTopItems();
@@ -45,7 +45,6 @@ export default {
       if (Array.isArray(this.orders)) {
         this.orders.forEach((order) => {
           const orderDate = new Date(order.order_date).toDateString();
-          console.log(orderDate);
           if (this.dailyOrdersCount[orderDate]) {
             this.dailyOrdersCount[orderDate]++;
           } else {

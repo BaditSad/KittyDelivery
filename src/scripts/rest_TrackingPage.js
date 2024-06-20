@@ -51,9 +51,9 @@ export default {
       this.loading = true;
       try {
         const restaurantId = "1";
-        const orders = await getRestaurantOrders(restaurantId);
-        this.orders = orders;
-        this.categorizeOrders(orders);
+        const response = await getRestaurantOrders(restaurantId);
+        this.orders = response.restaurants;
+        this.categorizeOrders(response.restaurants);
       } catch (err) {
         this.error = "Erreur lors de la récupération des commandes.";
       } finally {

@@ -46,7 +46,7 @@
       <div class="stats-section">
         <h2>Historiques des commandes :</h2>
         <ul>
-          <li v-for="(order, index) in orders" :key="index">
+          <li class="li" v-for="(order, index) in orders" :key="index">
             <p>Livraison effectuée le : {{ order.delivery_date }}</p>
             <p>Commande : {{ order.order_status }}</p>
             <p>Adresse de livraison : {{ order.delivery_address }}</p>

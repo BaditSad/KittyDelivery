@@ -35,10 +35,10 @@ export default {
 
           if (userRole === "client") {
             this.$router.push({ path: "/client" });
-          } else if (userRole === "rest") {
+          } else if (userRole === "restaurateur") {
             this.$router.push({ path: "/rest" });
           } else if (userRole === "livreur") {
-            this.$router.push({ path: "/livreur" });
+            this.$router.push({ path: "/deliv" });
           } else {
             this.$router.push({ name: "Home" });
           }
