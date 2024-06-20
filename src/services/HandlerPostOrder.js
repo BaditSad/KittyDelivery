@@ -1,4 +1,5 @@
 import apiGateway from "../../axios.config";
+import { postNotificationComponent } from "./HandlerPostNotification";
 
 export const postOrder = async (totalAmount, orderItems) => {
   try {
@@ -19,6 +20,9 @@ export const postOrder = async (totalAmount, orderItems) => {
       order_items: orderItems,
       delivery_address: deliveryAddress,
     });
+
+    postNotificationComponent(restaurantId, "Commande", "Nouvelle commande");
+    
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la création de menu:", error);
