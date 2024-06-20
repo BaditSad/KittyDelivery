@@ -29,7 +29,8 @@ export default {
     },
     async refresh() {
       try {
-        this.orders = await getDeliverCityOrdersAvailable(1, "Ville B");
+        const response = await getDeliverCityOrdersAvailable(1, "Ville B");
+        this.orders = response.deliveries;
       } catch (error) {
         console.error("Erreur lors de la récupération des commandes:", error);
       }
