@@ -17,7 +17,8 @@ export default {
     },
     async refresh() {
       try {
-        this.orders = await getDeliverTrackedOrders(1);
+        const response = await getDeliverTrackedOrders(1);
+        this.orders = response.deliveries;
       } catch (error) {
         console.error("Erreur lors de la récupération des commandes:", error);
       }
