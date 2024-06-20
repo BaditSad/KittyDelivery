@@ -495,4 +495,8 @@ input.text:focus {
     font-size: 12px;
     padding: 0.5rem;
   }
+  .add-form{
+    margin-top: 10px;
+    width: 75%;
+  }
 }

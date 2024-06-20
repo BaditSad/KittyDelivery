@@ -474,17 +474,12 @@ input.text:focus {
 }
 
 @media (max-width: 768px) {
-  .card-items {
-    grid-template-columns: 1fr;
-  }
-
   .main {
     flex-direction: column;
     align-items: center;
   }
 
-  .sidebar,
-  .menu-card {
+  .menu-card, .sidebar {
     width: 100%;
     margin-right: 0;
   }
@@ -492,14 +487,41 @@ input.text:focus {
   .profile_button {
     margin-bottom: 1rem;
   }
+
+  .card-items {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
-  .profile_button,
-  .add-button,
-  .button-update,
-  .button-delete {
+  .profile_button, .add-button, .button-update, .button-delete {
     font-size: 12px;
     padding: 0.5rem;
   }
+  .main {
+    width: 100%;
+  }
+  .sidebar{
+    width: 90%;
+    margin-top: 10px;
+  }
+  .menu-card{
+    width: 88%;
+  }
+  .edit-form{
+    margin-top: 10px;
+    width: 80%;
+  }
+  .add-form{
+    width: 80%;
+    margin-top: 10px;
+  }
+  .title{
+    width: 60%;
+  }
+  .logo{
+    width: 20%;
+  }
 }
+
+
