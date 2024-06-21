@@ -1,11 +1,28 @@
-import client_HomePage from '@/components/client_HomePage.vue'
+import client_HomePage from '@/components/client_HomePage.vue';
+import { getAllRestaurants } from '@/services/HandlerGetAllRest';
 
 export default {
   name: 'client_HomePage',
   components: {
     client_HomePage
-  }
+  },
+  data() {
+    return {
+      restaurants: []
+    };
+  },
+  async mounted() {
+    try {
+      const restaurants = await getAllRestaurants();
+      this.restaurants = restaurants;
+    } catch (error) {
+      console.error('Error fetching restaurants:', error);
+    }
+  },
 };
+
+
+
 
 /* eslint-disable */
 document.addEventListener("DOMContentLoaded", function() {

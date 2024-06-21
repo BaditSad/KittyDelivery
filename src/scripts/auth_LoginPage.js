@@ -46,6 +46,8 @@ export default {
       } catch (error) {
         if (error.response && error.response.status === 400 && error.response.data.errors) {
           this.errors = error.response.data.errors;
+        } else if (error.response && error.response.status === 403) {
+          this.errorMessage = "Votre compte est inactif. Veuillez contacter l'assistance.";
         } else {
           this.errorMessage = error.response?.data?.message || "Erreur de connexion.";
         }

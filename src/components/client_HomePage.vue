@@ -13,11 +13,13 @@
     <div class="container">
       <div class="main">
         <div class="rest-card">
-          <h1>Restaurant à proximité &#127828;</h1>
+          <h1>Restaurants à proximité &#127828;</h1>
           <div class="card-rests">
-            <router-link to="/client/selectmeal">
-              <div class="card-rest">Restaurant</div>
-            </router-link>
+            <div v-for="restaurant in restaurants" :key="restaurant.restaurant_id">
+              <router-link :to="`/client/selectmeal/${restaurant.restaurant_id}`">
+                <div class="card-rest">{{ restaurant.restaurant_name }}</div>
+              </router-link>
+            </div>
           </div>
         </div>
         <div class="notif-container">
